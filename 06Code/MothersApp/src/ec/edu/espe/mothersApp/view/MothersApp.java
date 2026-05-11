@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Angie Nacato, Error 404, @ESPE
+ * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class MothersApp {
 

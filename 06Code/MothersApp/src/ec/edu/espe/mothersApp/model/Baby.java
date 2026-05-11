@@ -2,7 +2,7 @@ package ec.edu.espe.mothersapp.model;
 
 /**
  *
- * @author Angie Nacato, Error 404, @ESPE
+ * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class Baby {
     private String name;
