@@ -1,10 +1,12 @@
 package ec.edu.espe.mothersapp.model;
+
 import java.util.ArrayList;
+
 /**
- *
  * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class Mother {
+
     private String name;
     private ArrayList<Baby> babies;
 
@@ -15,6 +17,23 @@ public class Mother {
     public Mother(String name) {
         this.name = name;
         this.babies = new ArrayList<>();
+    }
+
+    public void addBaby(Baby baby) {
+        this.babies.add(baby);
+    }
+    public Baby getBabyById(String id) {
+        for (Baby b : babies) {
+            if (b.getId().equals(id)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Mother{" + "name='" + name + '\'' + ", numberOfBabies=" + babies.size() + '}';
     }
 
     public String getName() { return name; }

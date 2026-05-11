@@ -172,20 +172,59 @@ public class MothersApp {
                     break;
 
                 case 6:
+                    int guideOption;
+                    do {
+                        System.out.println("");
+                        System.out.println("===== INTERACTIVE MOTHER & BABY GUIDE =====");
+                        System.out.println("1. Postpartum Care (Mother)");
+                        System.out.println("2. Breastfeeding Essentials");
+                        System.out.println("3. Newborn Sleep Safety");
+                        System.out.println("4. Baby Nutrition (First Months)");
+                        System.out.println("5. Return to Main Menu");
+                        System.out.print("Select a topic to view slides: ");
+                        
+                        guideOption = scanner.nextInt();
+                        scanner.nextLine();
 
-                    System.out.println("");
-                    System.out.println("===== COMMUNITY CHAT =====");
-
-                    System.out.print("Write your message: ");
-
-                    String message = scanner.nextLine();
-
-                    System.out.println("");
-                    System.out.println("Message sent successfully:");
-                    System.out.println(message);
-
+                        System.out.println("\n-------------------------------------------");
+                        switch (guideOption) {
+                            case 1:
+                                System.out.println(">>> SLIDE: MATERNAL RECOVERY");
+                                System.out.println(" * REST: Try to align your sleep with the baby's nap times.");
+                                System.out.println(" * HYDRATION: Drink at least 2-3 liters of water daily.");
+                                System.out.println(" * SIGNS: Watch for heavy bleeding or high fever.");
+                                break;
+                            case 2:
+                                System.out.println(">>> SLIDE: BREASTFEEDING TIPS");
+                                System.out.println(" * LATCH: Ensure the baby takes a large mouthful of breast.");
+                                System.out.println(" * DEMAND: Feed on cue, not on a strict clock schedule.");
+                                System.out.println(" * COMFORT: Use pillows to support your back and arms.");
+                                break;
+                            case 3:
+                                System.out.println(">>> SLIDE: SAFE SLEEP ENVIRONMENT");
+                                System.out.println(" * POSITION: Always place the baby on their back to sleep.");
+                                System.out.println(" * SURFACE: Use a firm, flat sleep surface (crib/bassinet).");
+                                System.out.println(" * CLEARANCE: No toys, pillows, or loose blankets in the crib.");
+                                break;
+                            case 4:
+                                System.out.println(">>> SLIDE: BABY GROWTH & FEEDING");
+                                System.out.println(" * 0-6 MONTHS: Exclusive breastfeeding or formula is recommended.");
+                                System.out.println(" * VITAMINS: Consult your doctor about Vitamin D drops.");
+                                System.out.println(" * STOMACH SIZE: A newborn's stomach is only the size of a cherry!");
+                                break;
+                            case 5:
+                                System.out.println("Returning to main menu...");
+                                break;
+                            default:
+                                System.out.println("Invalid selection. Please try again.");
+                        }
+                        if (guideOption != 5) {
+                            System.out.println("-------------------------------------------");
+                            System.out.println("Press Enter to continue...");
+                            scanner.nextLine();
+                        }
+                    } while (guideOption != 5);
                     break;
-
                 case 7:
 
                     System.out.println("");
