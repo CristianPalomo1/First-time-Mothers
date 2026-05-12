@@ -3,31 +3,27 @@ package ec.edu.espe.mothersapp.view;
 import ec.edu.espe.mothersapp.model.Baby;
 import ec.edu.espe.mothersapp.model.Mother;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
  * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class MothersApp {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-
         ArrayList<String> appointments = new ArrayList<>();
         ArrayList<String> medicalHistory = new ArrayList<>();
-
+        Mother currentMother = null;
         int option;
 
         do {
-
-            System.out.println("");
-            System.out.println("===== MATERNITY HEALTH CARE SYSTEM =====");
+            System.out.println("\n===== MATERNITY HEALTH CARE SYSTEM =====");
             System.out.println("1. Register Mother and Baby Profiles");
-            System.out.println("2. Calculate Gestation Week");
+            System.out.println("2. Calculate Gestation Week (Prenatal Calculator)");
             System.out.println("3. Validate Pediatric Growth");
             System.out.println("4. Manage Medical Appointment");
             System.out.println("5. Classify Health Risk Level");
@@ -38,297 +34,275 @@ public class MothersApp {
             System.out.println("10. Exit");
 
             System.out.print("Select an option: ");
-
             option = scanner.nextInt();
             scanner.nextLine();
 
             switch (option) {
-
                 case 1:
+                    System.out.println("\n--- Mother Registration ---");
+                    System.out.print("First Name: ");
+                    String mFirst = scanner.nextLine();
+                    System.out.print("Last Name: ");
+                    String mLast = scanner.nextLine();
+                    
+                    String mId;
+                    while (true) {
+                        System.out.print("ID (10 digits): ");
+                        mId = scanner.nextLine();
+                        if (mId.length() == 10 && mId.matches("\\d+")) break;
+                        System.out.println(">>> ERROR: The ID must have exactly 10 digits.");
+                    }
 
-                    System.out.print("Mother Name: ");
-                    Mother mother = new Mother(scanner.nextLine());
+                    System.out.print("Birth Date (YYYY-MM-DD): ");
+                    String mBirth = scanner.nextLine();
+                    currentMother = new Mother(mFirst, mLast, mId, mBirth);
 
-                    System.out.print("Baby Name: ");
-                    String babyName = scanner.nextLine();
+                    System.out.println("\n--- Baby Registration ---");
+                    System.out.print("First Name: ");
+                    String bFirst = scanner.nextLine();
+                    System.out.print("Last Name: ");
+                    String bLast = scanner.nextLine();
 
-                    System.out.print("Baby ID (Cedula): ");
-                    String babyId = scanner.nextLine();
+                    String bId;
+                    while (true) {
+                        System.out.print("Baby ID (10 digits): ");
+                        bId = scanner.nextLine();
+                        if (bId.length() == 10 && bId.matches("\\d+")) break;
+                        System.out.println(">>> ERROR: The ID must have exactly 10 digits.");
+                    }
 
                     System.out.print("Weight (g): ");
-                    double weight = scanner.nextDouble();
-
+                    double bWeight = scanner.nextDouble();
                     System.out.print("Height (cm): ");
-                    double height = scanner.nextDouble();
+                    double bHeight = scanner.nextDouble();
+                    scanner.nextLine(); 
+                    System.out.print("Birth Date (YYYY-MM-DD): ");
+                    String bBirth = scanner.nextLine();
+                    System.out.print("Has disability? (true/false): ");
+                    boolean bDis = scanner.nextBoolean();
                     scanner.nextLine();
 
-                    Baby baby = new Baby(babyName, babyId, weight, height);
-
-                    mother.getBabies().add(baby);
-
-                    System.out.println("");
-                    System.out.println("Profile registered successfully");
+                    Baby baby = new Baby(bFirst, bLast, bId, bWeight, bHeight, bBirth, bDis);
+                    currentMother.addBaby(baby);
+                    System.out.println("\nProfile registered successfully!");
                     break;
 
                 case 2:
-
-                    System.out.println("");
-                    System.out.println("Method: 1. LMP (FUM) | 2. Ultrasound (ECO)");
-
+                    System.out.println("\n--- Prenatal Calculator (Hospital de Calderón Standards) ---");
+                    System.out.println("Method: 1. LMP (FUM) | 2. Current Week (Direct)");
                     int method = scanner.nextInt();
                     scanner.nextLine();
-
-                    System.out.print("Enter date (YYYY-MM-DD): ");
-
-                    LocalDate date = LocalDate.parse(scanner.nextLine());
-
+                    
                     if (method == 1) {
-
-                        long weeks =
-                                ChronoUnit.WEEKS.between(date, LocalDate.now());
-
-                        System.out.println("Weeks by LMP: " + weeks);
-
+                        System.out.print("Enter Date of Last Menstrual Period (YYYY-MM-DD): ");
+                        try {
+                            LocalDate lmpDate = LocalDate.parse(scanner.nextLine());
+                            long weeks = ChronoUnit.WEEKS.between(lmpDate, LocalDate.now());
+                            LocalDate fpp = lmpDate.plusDays(7).minusMonths(3).plusYears(1);
+                            
+                            System.out.println("\n-------------------------------------------");
+                            System.out.println(">>> RESULT: WEEK " + weeks + " OF PREGNANCY");
+                            
+                            if (weeks <= 13) {
+                                System.out.println(">>> TRIMESTER: 1st Trimester");
+                                if (weeks == 5) {
+                                    System.out.println(">>> DEVELOPMENT: Embryo approx. 2 mm (Poppy seed).");
+                                    System.out.println(">>> KEY: Placenta starts developing.");
+                                }
+                            } else if (weeks <= 26) {
+                                System.out.println(">>> TRIMESTER: 2nd Trimester");
+                            } else {
+                                System.out.println(">>> TRIMESTER: 3rd Trimester");
+                            }
+                            System.out.println(">>> ESTIMATED DUE DATE (FPP): " + fpp);
+                        } catch (DateTimeParseException e) {
+                            System.out.println(">>> ERROR: Use YYYY-MM-DD format.");
+                        }
                     } else {
-
-                        System.out.print("Weeks reported in ECO: ");
-
-                        int ecoWeeks = scanner.nextInt();
-
-                        long weeksSinceEco =
-                                ChronoUnit.WEEKS.between(date, LocalDate.now());
-
-                        System.out.println("Total weeks by ECO: "
-                                + (ecoWeeks + weeksSinceEco));
+                        System.out.print("Enter current week: ");
+                        int currentW = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Tracking set at Week " + currentW);
                     }
-
                     break;
 
                 case 3:
-
-                    System.out.println("");
-                    System.out.println("PEDIATRIC GROWTH VALIDATION");
-
+                    System.out.println("\n--- Growth Status Validation ---");
                     System.out.print("Enter baby weight (g): ");
-                    double babyWeight = scanner.nextDouble();
-
+                    double vWeight = scanner.nextDouble();
                     System.out.print("Enter baby height (cm): ");
-                    double babyHeight = scanner.nextDouble();
+                    double vHeight = scanner.nextDouble();
                     scanner.nextLine();
-
-                    if (babyWeight >= 2500 && babyHeight >= 45) {
-
-                        System.out.println("Healthy pediatric growth");
-
-                    } else {
-
-                        System.out.println("Warning: Pediatric growth requires medical evaluation");
-                    }
-
+                    Baby tempBaby = new Baby();
+                    tempBaby.setWeight(vWeight);
+                    tempBaby.setHeight(vHeight);
+                    System.out.println("Status: " + tempBaby.getGrowthStatus());
                     break;
 
                 case 4:
-
-                    System.out.println("");
-                    System.out.println("===== MEDICAL APPOINTMENTS");
-
-                    System.out.print("Enter appointment date: ");
-                    String appointment = scanner.nextLine();
-
-                    appointments.add(appointment);
-
-                    System.out.println("Appointment registered successfully");
-
-                    System.out.println("Appointments:");
-
+                    System.out.println("\n--- Medical Appointment Record ---");
+    
+                    System.out.print("Enter date (YYYY-MM-DD): ");
+                    String date = scanner.nextLine();
+    
+                    System.out.print("Enter time (HH:mm): ");
+                    String time = scanner.nextLine();
+    
+                    String fullAppointment = "Date: " + date + " | Time: " + time;
+                    appointments.add(fullAppointment);
+    
+                    System.out.println("Registered. Upcoming:");
                     for (String app : appointments) {
-
-                        System.out.println("- " + app);
+                    System.out.println("- " + app);
                     }
-
                     break;
 
                 case 5:
-
-                    System.out.println("");
-                    System.out.println("===== HEALTH RISK CLASSIFICATION =====");
-
-                    System.out.print("Mother blood pressure: ");
+                    System.out.println("\n--- Health Risk Classification ---");
+                    System.out.print("Blood pressure (Systolic): ");
                     int pressure = scanner.nextInt();
-
                     System.out.print("Baby weight (g): ");
-                    double riskWeight = scanner.nextDouble();
+                    double rWeight = scanner.nextDouble();
                     scanner.nextLine();
-
-                    if (pressure > 140 || riskWeight < 2500) {
-
-                        System.out.println("HIGH RISK pregnancy");
-
-                    } else {
-
-                        System.out.println("LOW RISK pregnancy");
-                    }
-
+                    System.out.println("Classification: " + ((pressure > 140 || rWeight < 2500) ? "HIGH RISK" : "LOW RISK"));
                     break;
 
                 case 6:
-                    int guideOption;
+                         int guideOption;
+                         do {
+                             System.out.println("\n===========================================");
+                             System.out.println("   INTERACTIVE MOTHER & BABY HEALTH GUIDE  ");
+                             System.out.println("===========================================");
+                             System.out.println("1. Postpartum Care (Recovery & Warning Signs)");
+                             System.out.println("2. Breastfeeding (Techniques & Benefits)");
+                             System.out.println("3. Safe Sleep (SIDS Prevention)");
+                             System.out.println("4. Newborn Nutrition & Stomach Size");
+                             System.out.println("5. Return to Main Menu");
+                             System.out.print("\nSelect a topic to learn more: ");
+                             guideOption = scanner.nextInt();
+                             scanner.nextLine();
+
+                             if (guideOption == 5) {
+                                 System.out.println("\n>>> Returning to Main System...");
+                                 break;
+                             }
+
+                             System.out.println("\n-------------------------------------------");
+                             switch (guideOption) {
+                                 case 1:
+                                     System.out.println(">>> TOPIC: MATERNAL POSTPARTUM RECOVERY");
+                                     System.out.println(" * PHYSICAL: Rest whenever the baby sleeps. Uterine involution ");
+                                     System.out.println("   causes 'entuertos' (cramps), which are normal.");
+                                     System.out.println(" * HYDRATION: Drink at least 3 liters of water to support milk.");
+                                     System.out.println(" * WARNING SIGNS: Seek help if you have a high fever, foul-smelling");
+                                     System.out.println("   discharge, or extreme sadness/anxiety (Postpartum Depression).");
+                                     break;
+                                 case 2:
+                                     System.out.println(">>> TOPIC: BREASTFEEDING MASTERY");
+                                     System.out.println(" * THE LATCH: Ensure the baby takes a large mouthful of breast,");
+                                     System.out.println("   not just the nipple, to avoid pain and cracks.");
+                                     System.out.println(" * COLOSTRUM: The first yellow milk is 'liquid gold,' rich in");
+                                     System.out.println("   antibodies to protect your baby from infections.");
+                                     System.out.println(" * FREQUENCY: Feed on demand (8-12 times a day).");
+                                     break;
+                                 case 3:
+                                     System.out.println(">>> TOPIC: SAFE SLEEP ENVIRONMENT");
+                                     System.out.println(" * POSITION: Always place the baby on their BACK to sleep.");
+                                     System.out.println(" * SURFACE: Use a firm, flat mattress. No pillows, stuffed animals,");
+                                     System.out.println("   or loose blankets in the crib (prevents suffocation).");
+                                     System.out.println(" * TEMPERATURE: Keep the room at a comfortable temperature;");
+                                     System.out.println("   don't overdress the baby (overheating is a risk factor).");
+                                     break;
+                                 case 4:
+                                     System.out.println(">>> TOPIC: NEWBORN NUTRITION");
+                                     System.out.println(" * STOMACH SIZE: Day 1 (Cherry size, 5-7ml), Day 3 (Walnut size),");
+                                     System.out.println("   One week (Apricot size), One month (Large egg size).");
+                                     System.out.println(" * EXCLUSIVITY: Only breast milk or formula for the first 6 months.");
+                                     System.out.println("   No water, juices, or porridges are needed yet.");
+                                     break;
+                                 default:
+                                     System.out.println(">>> Invalid option. Please select 1-5.");
+                                     continue;
+                             }
+                             System.out.println("-------------------------------------------");
+                             System.out.println("Press Enter to go back to the Guide Menu...");
+                             scanner.nextLine();
+
+                         } while (guideOption != 5);
+                         break;
+                case 7:
+                    System.out.println("\n--- Persist Medical History ---");
+                    System.out.print("Enter note: ");
+                    medicalHistory.add(scanner.nextLine());
+                    System.out.println("History Records Saved.");
+                    break;
+
+                case 8:
+                    int eduOption;
                     do {
-                        System.out.println("");
-                        System.out.println("===== INTERACTIVE MOTHER & BABY GUIDE =====");
-                        System.out.println("1. Postpartum Care (Mother)");
-                        System.out.println("2. Breastfeeding Essentials");
-                        System.out.println("3. Newborn Sleep Safety");
-                        System.out.println("4. Baby Nutrition (First Months)");
-                        System.out.println("5. Return to Main Menu");
-                        System.out.print("Select a topic to view slides: ");
-                        
-                        guideOption = scanner.nextInt();
-                        scanner.nextLine();
+                        System.out.println("\n--- Educational Resources ---");
+                        System.out.println("1. Prenatal Nutrition\n2. Checkup Importance\n3. Vaccination\n4. Return to Main Menu");
+                        System.out.print("Select a topic to read: ");
+                        eduOption = scanner.nextInt();
+                        scanner.nextLine(); 
+
+                        if (eduOption == 4) {
+                            System.out.println(">>> Returning...");
+                            break;
+                        }
 
                         System.out.println("\n-------------------------------------------");
-                        switch (guideOption) {
+                        switch (eduOption) {
                             case 1:
-                                System.out.println(">>> SLIDE: MATERNAL RECOVERY");
-                                System.out.println(" * REST: Try to align your sleep with the baby's nap times.");
-                                System.out.println(" * HYDRATION: Drink at least 2-3 liters of water daily.");
-                                System.out.println(" * SIGNS: Watch for heavy bleeding or high fever.");
+                                System.out.println(">>> PRENATAL NUTRITION");
+                                System.out.println(" * FOLIC ACID: Essential for baby's brain and spine development.");
+                                System.out.println(" * IRON: Prevents anemia and helps deliver oxygen to the baby.");
+                                System.out.println(" * AVOID: Raw fish, unpasteurized cheese, and excess caffeine.");
                                 break;
                             case 2:
-                                System.out.println(">>> SLIDE: BREASTFEEDING TIPS");
-                                System.out.println(" * LATCH: Ensure the baby takes a large mouthful of breast.");
-                                System.out.println(" * DEMAND: Feed on cue, not on a strict clock schedule.");
-                                System.out.println(" * COMFORT: Use pillows to support your back and arms.");
+                                System.out.println(">>> CHECKUP IMPORTANCE");
+                                System.out.println(" * FREQUENCY: Monthly until week 28, then every 2 weeks.");
+                                System.out.println(" * PURPOSE: Monitor blood pressure, fetal growth, and glucose levels.");
+                                System.out.println(" * ULTRASOUNDS: Crucial to check baby's organs and anatomy.");
                                 break;
                             case 3:
-                                System.out.println(">>> SLIDE: SAFE SLEEP ENVIRONMENT");
-                                System.out.println(" * POSITION: Always place the baby on their back to sleep.");
-                                System.out.println(" * SURFACE: Use a firm, flat sleep surface (crib/bassinet).");
-                                System.out.println(" * CLEARANCE: No toys, pillows, or loose blankets in the crib.");
-                                break;
-                            case 4:
-                                System.out.println(">>> SLIDE: BABY GROWTH & FEEDING");
-                                System.out.println(" * 0-6 MONTHS: Exclusive breastfeeding or formula is recommended.");
-                                System.out.println(" * VITAMINS: Consult your doctor about Vitamin D drops.");
-                                System.out.println(" * STOMACH SIZE: A newborn's stomach is only the size of a cherry!");
-                                break;
-                            case 5:
-                                System.out.println("Returning to main menu...");
+                                System.out.println(">>> VACCINATION GUIDE");
+                                System.out.println(" * TDAP: Protects the newborn from whooping cough (tos ferina).");
+                                System.out.println(" * INFLUENZA: Safe during any trimester to protect mom and baby.");
+                                System.out.println(" * POST-BIRTH: Ensure the baby receives Hepatitis B and BCG.");
                                 break;
                             default:
-                                System.out.println("Invalid selection. Please try again.");
+                                System.out.println("Invalid option. Please choose 1-4.");
                         }
-                        if (guideOption != 5) {
+
+                        if (eduOption >= 1 && eduOption <= 3) {
                             System.out.println("-------------------------------------------");
                             System.out.println("Press Enter to continue...");
                             scanner.nextLine();
                         }
-                    } while (guideOption != 5);
-                    break;
-                case 7:
 
-                    System.out.println("");
-                    System.out.println("===== MEDICAL HISTORY =====");
-
-                    System.out.print("Enter medical history note: ");
-
-                    String history = scanner.nextLine();
-
-                    medicalHistory.add(history);
-
-                    System.out.println("");
-                    System.out.println("Medical history saved successfully");
-
-                    System.out.println("History Records:");
-
-                    for (String record : medicalHistory) {
-
-                        System.out.println("- " + record);
-                    }
-
-                    break;
-
-                case 8:
-
-                    System.out.println("");
-                    System.out.println("===== EDUCATIONAL RESOURCES =====");
-
-                    System.out.println("1. Nutrition during pregnancy");
-                    System.out.println("2. Importance of prenatal checkups");
-                    System.out.println("3. Newborn care recommendations");
-                    System.out.println("4. Vaccination schedule");
-                    System.out.println("5. Breastfeeding benefits");
-
+                    } while (eduOption != 4);
                     break;
 
                 case 9:
-
-                    System.out.println("");
-                    System.out.println("===== MSP WARNING SIGNS =====");
-
-                    System.out.println("1. Constant headache or blurry vision");
-                    System.out.println("2. Vaginal bleeding or fluid loss");
-                    System.out.println("3. Swelling of hands, face, or feet");
-                    System.out.println("4. Baby weak cry");
-                    System.out.println("5. High fever or chills");
-
-                    System.out.print("Select a warning sign: ");
-
+                    System.out.println("\n--- Critical Warning Signs (MSP Protocol) ---");
+                    System.out.println("1. Fever/Hypothermia\n2. Respiratory distress\n3. Feeding refusal\n4. Skin color\n5. Activity");
+                    System.out.print("Select a sign: ");
                     int sign = scanner.nextInt();
                     scanner.nextLine();
-
-                    System.out.println("");
-
-                    switch (sign) {
-
-                        case 1:
-
-                            System.out.println("ALERT: Possible preeclampsia.");
-                            break;
-
-                        case 2:
-
-                            System.out.println("ALERT: Emergency during pregnancy.");
-                            break;
-
-                        case 3:
-
-                            System.out.println("ALERT: Possible hypertension.");
-                            break;
-
-                        case 4:
-
-                            System.out.println("ALERT: Baby requires medical evaluation.");
-                            break;
-
-                        case 5:
-
-                            System.out.println("ALERT: Possible infection.");
-                            break;
-
-                        default:
-
-                            System.out.println("Invalid option.");
-                            break;
-                    }
-
+                    String[] alerts = {"Temperature Emergency", "Respiratory Emergency", "Dehydration Risk", "Jaundice/Cyanosis", "Neurological Alert"};
+                    if (sign >= 1 && sign <= 5) System.out.println("ALERT: " + alerts[sign-1]);
                     break;
 
                 case 10:
-
-                    System.out.println("");
-                    System.out.println("System closed");
+                    System.out.println("\nSystem closed.");
                     break;
 
                 default:
-
-                    System.out.println("");
-                    System.out.println("Invalid option");
+                    System.out.println("\nInvalid option.");
                     break;
             }
-
         } while (option != 10);
-
         scanner.close();
     }
 }
