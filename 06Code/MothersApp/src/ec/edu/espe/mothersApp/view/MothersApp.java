@@ -39,52 +39,69 @@ public class MothersApp {
 
             switch (option) {
                 case 1:
-                    System.out.println("\n--- Mother Registration ---");
-                    System.out.print("First Name: ");
-                    String mFirst = scanner.nextLine();
-                    System.out.print("Last Name: ");
-                    String mLast = scanner.nextLine();
+                    String motherName;
+                    boolean motherHasNumbers;
                     
-                    String mId;
-                    while (true) {
-                        System.out.print("ID (10 digits): ");
-                        mId = scanner.nextLine();
-                        if (mId.length() == 10 && mId.matches("\\d+")) break;
-                        System.out.println(">>> ERROR: The ID must have exactly 10 digits.");
-                    }
-
-                    System.out.print("Birth Date (YYYY-MM-DD): ");
-                    String mBirth = scanner.nextLine();
-                    currentMother = new Mother(mFirst, mLast, mId, mBirth);
-
-                    System.out.println("\n--- Baby Registration ---");
-                    System.out.print("First Name: ");
-                    String bFirst = scanner.nextLine();
-                    System.out.print("Last Name: ");
-                    String bLast = scanner.nextLine();
-
-                    String bId;
-                    while (true) {
-                        System.out.print("Baby ID (10 digits): ");
-                        bId = scanner.nextLine();
-                        if (bId.length() == 10 && bId.matches("\\d+")) break;
-                        System.out.println(">>> ERROR: The ID must have exactly 10 digits.");
-                    }
-
-                    System.out.print("Weight (g): ");
-                    double bWeight = scanner.nextDouble();
-                    System.out.print("Height (cm): ");
-                    double bHeight = scanner.nextDouble();
-                    scanner.nextLine(); 
-                    System.out.print("Birth Date (YYYY-MM-DD): ");
-                    String bBirth = scanner.nextLine();
-                    System.out.print("Has disability? (true/false): ");
-                    boolean bDis = scanner.nextBoolean();
+                    do {
+                        motherHasNumbers = false;
+                        System.out.print("Mother Name: ");
+                        motherName = scanner.nextLine();
+                        
+                        if (motherName.length() == 0) {
+                            motherHasNumbers = true;
+                        } else {
+                            for (int i = 0; i < motherName.length(); i++) {
+                                char c = motherName.charAt(i);
+                                if (c >= '0' && c <= '9') {
+                                    motherHasNumbers = true;
+                                }
+                            }
+                        }
+                        
+                        if (motherHasNumbers) {
+                            System.out.println("Error: Use solo letras.");
+                            }
+                        } while (motherHasNumbers);
+                        
+                        String babyName;
+                        boolean babyHasNumbers;
+                        
+                        do{
+                            babyHasNumbers = false;
+                            System.out.print("Baby Name: ");
+                            babyName = scanner.nextLine();
+                            
+                            if (babyName.length() == 0) {
+                                babyHasNumbers = true;
+                            } else {
+                                for (int i = 0; i < babyName.length(); i++) {
+                                    char c = babyName.charAt(i);
+                                    if (c >= '0' && c <= '9') {
+                                        babyHasNumbers = true;
+                                    }
+                                }
+                            }
+                        
+                        if (babyHasNumbers) {
+                            System.out.println("Error: Use solo letras.");
+                        }
+                    } while (babyHasNumbers);
+                    
+                    System.out.println("Baby ID (Cedula): ");
+                    String babyId = scanner.nextLine();
+                    
+                    System.out.println("Weight (g): ");
+                    double weight = scanner.nextDouble();
+                    
+                    System.out.println("Height (cm): ");
+                    double height = scanner.nextDouble();
                     scanner.nextLine();
-
-                    Baby baby = new Baby(bFirst, bLast, bId, bWeight, bHeight, bBirth, bDis);
-                    currentMother.addBaby(baby);
-                    System.out.println("\nProfile registered successfully!");
+                    
+                    Mother mother = new Mother(motherName);
+                    Baby baby = new Baby(babyName, babyId, weight, height);
+                    mother.getBabies().add(baby);
+                    
+                    System.out.println("\nProfile registered successfully");
                     break;
 
                 case 2:
