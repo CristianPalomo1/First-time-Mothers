@@ -1,6 +1,5 @@
 package ec.edu.espe.mothersApp.view;
 
-
 import ec.edu.espe.mothersApp.model.*;
 import java.util.Scanner;
 
@@ -37,81 +36,16 @@ public class MothersApp {
             switch (option) {
 
                 case 1:
-<<<<<<< HEAD
 
                     ProfileManager profileManager = new ProfileManager();
                     profileManager.createMotherProfile();
 
-=======
-                    String motherName;
-                    boolean motherHasNumbers;
-                    
-                    do {
-                        motherHasNumbers = false;
-                        System.out.print("Mother Name: ");
-                        motherName = scanner.nextLine();
-                        
-                        if (motherName.length() == 0) {
-                            motherHasNumbers = true;
-                        } else {
-                            for (int i = 0; i < motherName.length(); i++) {
-                                char c = motherName.charAt(i);
-                                if (c >= '0' && c <= '9') {
-                                    motherHasNumbers = true;
-                                }
-                            }
-                        }
-                        
-                        if (motherHasNumbers) {
-                            System.out.println("Error: Use solo letras.");
-                            }
-                        } while (motherHasNumbers);
-                        
-                        String babyName;
-                        boolean babyHasNumbers;
-                        
-                        do{
-                            babyHasNumbers = false;
-                            System.out.print("Baby Name: ");
-                            babyName = scanner.nextLine();
-                            
-                            if (babyName.length() == 0) {
-                                babyHasNumbers = true;
-                            } else {
-                                for (int i = 0; i < babyName.length(); i++) {
-                                    char c = babyName.charAt(i);
-                                    if (c >= '0' && c <= '9') {
-                                        babyHasNumbers = true;
-                                    }
-                                }
-                            }
-                        
-                        if (babyHasNumbers) {
-                            System.out.println("Error: Use solo letras.");
-                        }
-                    } while (babyHasNumbers);
-                    
-                    System.out.println("Baby ID (Cedula): ");
-                    String babyId = scanner.nextLine();
-                    
-                    System.out.println("Weight (g): ");
-                    double weight = scanner.nextDouble();
-                    
-                    System.out.println("Height (cm): ");
-                    double height = scanner.nextDouble();
-                    scanner.nextLine();
-                    
-                    Mother mother = new Mother(motherName);
-                    Baby baby = new Baby(babyName, babyId, weight, height);
-                    mother.getBabies().add(baby);
-                    
-                    System.out.println("\nProfile registered successfully");
->>>>>>> 2514faeefd2eed03bf7a32f82d54ea0a846324ed
                     break;
 
                 case 2:
+
                     new GestationCalculator().calculateFromWeek();
-                     break;
+                    break;
 
                 case 3:
 
