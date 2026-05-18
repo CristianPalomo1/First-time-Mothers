@@ -73,8 +73,12 @@ public class MothersApp {
 
                 case 7:
 
-                    System.out.println("Medical history saved successfully.");
+                     sc.nextLine(); // limpiar buffer
 
+                    System.out.print("Enter doctor's recommendation: ");
+                    String recommendation = sc.nextLine();
+
+                    ScheduleAppointment.saveMedicalHistory(recommendation);
                     break;
 
                 case 8:

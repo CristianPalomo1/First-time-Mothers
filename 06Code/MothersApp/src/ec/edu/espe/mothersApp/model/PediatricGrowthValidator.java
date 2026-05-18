@@ -13,13 +13,17 @@ import java.util.Scanner;
 
 public class PediatricGrowthValidator {
 
+    // 🔹 Variables globales (BIEN, las mantienes)
     public static double motherWeight;
     public static double motherHeight;
 
     public static double babyWeight;
     public static double babyHeight;
 
-    public void validateGrowth() {
+    // ===============================
+    // ✅ VALIDAR CRECIMIENTO
+    // ===============================
+    public static void validateGrowth() {
 
         Scanner sc = new Scanner(System.in);
 
@@ -42,7 +46,6 @@ public class PediatricGrowthValidator {
                 babyHeight = sc.nextDouble();
 
                 showResult(babyWeight, babyHeight);
-
                 break;
 
             case 2:
@@ -54,7 +57,6 @@ public class PediatricGrowthValidator {
                 babyHeight = sc.nextDouble();
 
                 showResult(babyWeight, babyHeight);
-
                 break;
 
             case 3:
@@ -66,24 +68,26 @@ public class PediatricGrowthValidator {
                 motherHeight = sc.nextDouble();
 
                 showResult(motherWeight, motherHeight);
-
                 break;
 
             default:
-
                 System.out.println("Invalid option.");
         }
     }
 
-    public void showResult(double weight, double size) {
+    // ===============================
+    // ✅ RESULTADO CORREGIDO
+    // ===============================
+    public static void showResult(double weight, double size) {
 
         System.out.println("\n========== RESULTS ==========");
 
-        if (weight >= 2500 || size >= 45) {
+        // 🔴 CAMBIO IMPORTANTE: usar AND en vez de OR
+        if (weight >= 2500 && size >= 45) {
 
             System.out.println("Growth Status: NORMAL");
 
-        } else if (weight >= 1800 || size >= 35) {
+        } else if (weight >= 1800 && size >= 35) {
 
             System.out.println("Growth Status: LOW RISK");
 
