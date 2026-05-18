@@ -17,21 +17,70 @@ public class PediatricGrowthValidator {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n---PEDIATRIC GROWTH VALIDATOR ---");
+        System.out.println("\n========== VALIDATE PEDIATRIC GROWTH ==========");
+        System.out.println("1. Baby's information (Gestation period)");
+        System.out.println("2. Baby's information (Newborn)");
+        System.out.println("3. Mother's information");
 
-        System.out.print("Enter baby weight (kg): ");
-        double weight = sc.nextDouble();
+        System.out.print("Select an option: ");
+        int option = sc.nextInt();
 
-        System.out.print("Enter baby size in the womb (cm): ");
-        double size = sc.nextDouble();
+        double weight;
+        double size;
 
-        System.out.println("\n--- RESULTS --");
+        switch (option) {
 
-        if (weight >= 2.5 && size >= 45) {
+            case 1:
+
+                System.out.print("Enter baby weight (g): ");
+                weight = sc.nextDouble();
+
+                System.out.print("Enter baby size in the womb (cm): ");
+                size = sc.nextDouble();
+
+                showResult(weight, size);
+
+                break;
+
+            case 2:
+
+                System.out.print("Introduzca el peso del bebé (g): ");
+                weight = sc.nextDouble();
+
+                System.out.print("Introduzca la estatura del bebé (cm): ");
+                size = sc.nextDouble();
+
+                showResult(weight, size);
+
+                break;
+
+            case 3:
+
+                System.out.print("Enter mother's weight (kg): ");
+                weight = sc.nextDouble();
+
+                System.out.print("Enter mother's height (cm): ");
+                size = sc.nextDouble();
+
+                showResult(weight, size);
+
+                break;
+
+            default:
+
+                System.out.println("Invalid option.");
+        }
+    }
+
+    public void showResult(double weight, double size) {
+
+        System.out.println("\n========== RESULTS ==========");
+
+        if (weight >= 2500 || size >= 45) {
 
             System.out.println("Growth Status: NORMAL");
 
-        } else if (weight >= 1.8 && size >= 35) {
+        } else if (weight >= 1800 || size >= 35) {
 
             System.out.println("Growth Status: LOW RISK");
 

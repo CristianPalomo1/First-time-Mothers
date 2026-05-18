@@ -9,24 +9,24 @@ public class Baby {
     public String firstName;
     public String lastName;
     public String id;
-    public String birthDate;
-    public int weightGrams;
+    public int weight;
     public int height;
+    public String birthDate;
     public boolean disability;
-    public String gestationPeriod;
-    public boolean neonate;
 
-    public Baby(String firstName,String lastName,String id,int weightGrams,int height,String birthDate,boolean disability,String gestationPeriod,boolean neonate)
-            
-    {
+    public int gestationPeriod;
+    public int months;
+
+    public Baby(String firstName, String lastName, String id,
+            int weight, int height,
+            String birthDate, boolean disability) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.weightGrams = weightGrams;
+        this.weight = weight;
         this.height = height;
         this.birthDate = birthDate;
         this.disability = disability;
-        this.gestationPeriod = gestationPeriod;
-        this.neonate = neonate;
     }
 }

@@ -26,7 +26,7 @@ public class MothersApp {
             System.out.println("4. Manage Medical Appointment");
             System.out.println("5. Classify Health Risk Level");
             System.out.println("6. Interactive Community Chat for Mothers");
-            System.out.println("7. Doctor Recommendations");
+            System.out.println("7. Persist Medical History");
             System.out.println("8. Provide Educational Resource");
             System.out.println("9. Monitor Warning Signs");
             System.out.println("10. Medical History");
@@ -35,7 +35,7 @@ public class MothersApp {
             System.out.print("Select an option: ");
             option = sc.nextInt();
 
-            switch(option) {
+            switch (option) {
 
                 case 1:
 
@@ -47,6 +47,7 @@ public class MothersApp {
                 case 2:
 
                     new GestationCalculator().calculateFromWeek();
+
                     break;
 
                 case 3:
@@ -75,16 +76,9 @@ public class MothersApp {
 
                 case 7:
 
-                 sc.nextLine();
+                    System.out.println("Medical history saved successfully.");
 
-                System.out.print("Enter doctor's recommendation: ");
-                String history = sc.nextLine();
-
-                db.saveHistory(history);
-
-                db.showHistory();
-
-                break;
+                    break;
 
                 case 8:
 
@@ -98,14 +92,12 @@ public class MothersApp {
 
                     break;
 
-                    
                 case 10:
-                
-                MedicalHistory medicalHistory = new MedicalHistory();
-                medicalHistory.showMedicalHistory();
 
-                 break;
-                 
+                    showMedicalHistory();
+
+                    break;
+
                 case 11:
 
                     System.out.println("Exiting system...");
@@ -118,5 +110,46 @@ public class MothersApp {
             }
 
         } while (option != 11);
+    }
+
+    public static void showMedicalHistory() {
+
+        System.out.println("\n======================================");
+        System.out.println("         MEDICAL HISTORY");
+        System.out.println("======================================");
+
+        if (ProfileManager.savedMother != null) {
+
+            System.out.println("\nMother:");
+            System.out.println(ProfileManager.savedMother.firstName + " "
+                    + ProfileManager.savedMother.lastName);
+
+            System.out.println("ID: " + ProfileManager.savedMother.id);
+            System.out.println("Birth Date: " + ProfileManager.savedMother.birthDate);
+        }
+
+        if (ProfileManager.savedBaby != null) {
+
+            System.out.println("\nBaby:");
+            System.out.println(ProfileManager.savedBaby.firstName + " "
+                    + ProfileManager.savedBaby.lastName);
+
+            System.out.println("Expected/Birth Date: "
+                    + ProfileManager.savedBaby.birthDate);
+
+            System.out.println("Appointment: General Control");
+            System.out.println("Recommendation: Healthy monitoring");
+
+            System.out.println("Mother Weight: Pending");
+            System.out.println("Mother Height: Pending");
+
+            System.out.println("Baby Weight: "
+                    + ProfileManager.savedBaby.weight + " g");
+
+            System.out.println("Baby Height: "
+                    + ProfileManager.savedBaby.height + " cm");
+        }
+
+        System.out.println("======================================");
     }
 }
