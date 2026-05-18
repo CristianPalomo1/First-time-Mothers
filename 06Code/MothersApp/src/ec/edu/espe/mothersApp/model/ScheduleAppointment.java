@@ -13,21 +13,57 @@ import java.util.Scanner;
 
 public class ScheduleAppointment {
 
-    public void showAppointments() {
+    public static void showMedicalHistory() {
 
-        Scanner sc = new Scanner(System.in);
+    System.out.println("\n======================================");
+    System.out.println("         MEDICAL HISTORY");
+    System.out.println("======================================");
 
-        System.out.println("\n===== MEDICAL CALENDAR =====");
+    if (ProfileManager.savedMother != null) {
 
-        System.out.print("Enter appointment date (YYYY-MM-DD): ");
-        String date = sc.nextLine();
+        System.out.println("\nMOTHER INFORMATION");
+        System.out.println("----------------------------");
 
-        System.out.print("Reminder message: ");
-        String reminder = sc.nextLine();
+        System.out.println("Name: "
+                + ProfileManager.savedMother.firstName + " "
+                + ProfileManager.savedMother.lastName);
 
-        System.out.println("\nAppointment saved successfully!");
+        System.out.println("ID: "
+                + ProfileManager.savedMother.id);
 
-        System.out.println("Appointment Date: " + date);
-        System.out.println("Reminder: " + reminder);
+        System.out.println("Birth Date: "
+                + ProfileManager.savedMother.birthDate);
+
+        System.out.println("Mother Weight: "
+                + PediatricGrowthValidator.motherWeight + " kg");
+
+        System.out.println("Mother Height: "
+                + PediatricGrowthValidator.motherHeight + " cm");
     }
+
+    if (ProfileManager.savedBaby != null) {
+
+        System.out.println("\nBABY INFORMATION");
+        System.out.println("----------------------------");
+
+        System.out.println("Name: "
+                + ProfileManager.savedBaby.firstName + " "
+                + ProfileManager.savedBaby.lastName);
+
+        System.out.println("Expected/Birth Date: "
+                + ProfileManager.savedBaby.birthDate);
+
+        System.out.println("Baby Weight: "
+                + PediatricGrowthValidator.babyWeight + " g");
+
+        System.out.println("Baby Height: "
+                + PediatricGrowthValidator.babyHeight + " cm");
+
+        System.out.println("Appointment: General Control");
+
+        System.out.println("Recommendation: Healthy monitoring");
+    }
+
+    System.out.println("======================================");
+}
 }

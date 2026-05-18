@@ -24,7 +24,7 @@ public class ProfileManager {
         String mFn = readOnlyLetters("First Name: ");
         String mLn = readOnlyLetters("Last Name: ");
         String mBd = readValidDate("Birth Date (YYYY-MM-DD): ");
-        String mId = readValidId("ID (10 digits): ");
+        String mId = readValidId("ID (max 20 digits): ");
 
         savedMother = new Mother(mFn, mLn, mId, mBd);
 
@@ -45,7 +45,7 @@ public class ProfileManager {
             savedBaby = new Baby(
                     "Not registered",
                     "Not registered",
-                    "0000000000",
+                    "Not registered",
                     0,
                     0,
                     "Pending",
@@ -63,7 +63,13 @@ public class ProfileManager {
             int months = sc.nextInt();
             sc.nextLine();
 
-            String bId = readValidId("Baby ID (10 digits): ");
+            System.out.print("Baby ID (optional): ");
+            String bId = sc.nextLine();
+
+            if (bId.isEmpty()) {
+                bId = "Not registered";
+            }
+
             String bBd = readValidDate("Birth Date (YYYY-MM-DD): ");
 
             savedBaby = new Baby(
@@ -108,11 +114,11 @@ public class ProfileManager {
             System.out.print(msg);
             id = sc.nextLine();
 
-            if (id.matches("\\d{10}")) {
+            if (id.matches("\\d{1,20}")) {
                 return id;
             }
 
-            System.out.println("ERROR: ID must contain exactly 10 digits.");
+            System.out.println("ERROR: ID must contain a maximum of 20 digits.");
         }
     }
 

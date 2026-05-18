@@ -13,6 +13,12 @@ import java.util.Scanner;
 
 public class PediatricGrowthValidator {
 
+    public static double motherWeight;
+    public static double motherHeight;
+
+    public static double babyWeight;
+    public static double babyHeight;
+
     public void validateGrowth() {
 
         Scanner sc = new Scanner(System.in);
@@ -25,44 +31,41 @@ public class PediatricGrowthValidator {
         System.out.print("Select an option: ");
         int option = sc.nextInt();
 
-        double weight;
-        double size;
-
         switch (option) {
 
             case 1:
 
                 System.out.print("Enter baby weight (g): ");
-                weight = sc.nextDouble();
+                babyWeight = sc.nextDouble();
 
                 System.out.print("Enter baby size in the womb (cm): ");
-                size = sc.nextDouble();
+                babyHeight = sc.nextDouble();
 
-                showResult(weight, size);
+                showResult(babyWeight, babyHeight);
 
                 break;
 
             case 2:
 
-                System.out.print("Introduzca el peso del bebé (g): ");
-                weight = sc.nextDouble();
+                System.out.print("Enter baby weight (g): ");
+                babyWeight = sc.nextDouble();
 
-                System.out.print("Introduzca la estatura del bebé (cm): ");
-                size = sc.nextDouble();
+                System.out.print("Enter baby height (cm): ");
+                babyHeight = sc.nextDouble();
 
-                showResult(weight, size);
+                showResult(babyWeight, babyHeight);
 
                 break;
 
             case 3:
 
                 System.out.print("Enter mother's weight (kg): ");
-                weight = sc.nextDouble();
+                motherWeight = sc.nextDouble();
 
                 System.out.print("Enter mother's height (cm): ");
-                size = sc.nextDouble();
+                motherHeight = sc.nextDouble();
 
-                showResult(weight, size);
+                showResult(motherWeight, motherHeight);
 
                 break;
 

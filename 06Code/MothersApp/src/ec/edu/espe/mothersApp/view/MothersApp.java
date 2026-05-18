@@ -2,14 +2,11 @@ package ec.edu.espe.mothersApp.view;
 
 import ec.edu.espe.mothersApp.model.*;
 import java.util.Scanner;
-import ec.edu.espe.mothersApp.model.MedicalHistory;
 
 /**
  * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class MothersApp {
-
-    static MedicalDataBase db = new MedicalDataBase();
 
     public static void main(String[] args) {
 
@@ -58,7 +55,7 @@ public class MothersApp {
 
                 case 4:
 
-                    new ScheduleAppointment().showAppointments();
+                       new ScheduleAppointment().showAppointments();
 
                     break;
 
