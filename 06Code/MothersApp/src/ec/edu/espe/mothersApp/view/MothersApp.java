@@ -49,15 +49,23 @@ public class MothersApp {
 
                 case 3:
 
-                    new PediatricGrowthValidator().validateGrowth();
+                    PediatricGrowthValidator.validateGrowth();
 
                     break;
 
-                case 4:
+               case 4:
+                sc.nextLine();
 
-                       new ScheduleAppointment().showAppointments();
+                 System.out.print("Enter appointment date: ");
+                    String date = sc.nextLine();
 
-                    break;
+                 System.out.print("Enter reminder: ");
+                String reminder = sc.nextLine();
+
+                ScheduleAppointment.scheduleAppointment(date, reminder);
+                ScheduleAppointment.showAppointments();
+                break;
+
 
                 case 5:
 
