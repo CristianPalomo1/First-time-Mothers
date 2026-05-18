@@ -66,4 +66,15 @@ public class ScheduleAppointment {
 
     System.out.println("======================================");
 }
+    public static void showAppointments() {
+        System.out.println("\n======================================");
+        System.out.println("         APPOINTMENTS");
+        System.out.println("======================================");
+
+        System.out.println("Next appointment: General Control");
+        System.out.println("Date: Not scheduled yet");
+
+        System.out.println("======================================");
+    }
 }
+    
