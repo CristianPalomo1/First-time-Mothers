@@ -9,13 +9,18 @@ public class Mother {
     public String lastName;
     public String id;
     public String birthDate;
+    public double weight;
+    public double height;
 
     public Mother(String firstName, String lastName,
-                  String id, String birthDate) {
+                  String id, String birthDate,
+                  double weight, double height) {
 
-        this.firstName = firstName;
+       this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
         this.birthDate = birthDate;
+        this.weight = weight;
+        this.height = height;
     }
 }

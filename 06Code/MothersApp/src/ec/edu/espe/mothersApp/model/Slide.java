@@ -23,7 +23,7 @@ public class Slide {
     }
     
     public void showSlide() {
-        System.out.println("--- Visualizando Diapositiva ---");
+        System.out.println("____  Visualizando Diapositiva ____ ");
         System.out.println("Título: " + title);
         System.out.println("Imagen: " + image);
         System.out.println("Contenido: " + text);

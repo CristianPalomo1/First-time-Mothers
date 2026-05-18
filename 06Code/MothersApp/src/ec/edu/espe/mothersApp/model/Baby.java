@@ -12,14 +12,18 @@ public class Baby {
     public int weight;
     public int height;
     public String birthDate;
-    public boolean disability;
+    public boolean born;
 
     public int gestationPeriod;
     public int months;
 
-    public Baby(String firstName, String lastName, String id,
-            int weight, int height,
-            String birthDate, boolean disability) {
+    public Baby(String firstName,
+                String lastName,
+                String id,
+                int weight,
+                int height,
+                String birthDate,
+                boolean born) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +31,9 @@ public class Baby {
         this.weight = weight;
         this.height = height;
         this.birthDate = birthDate;
-        this.disability = disability;
+        this.born = born;
+
+        this.gestationPeriod = 0;
+        this.months = 0;
     }
 }

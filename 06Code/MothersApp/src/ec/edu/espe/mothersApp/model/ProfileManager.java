@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Jennyfer Nase, Error 404, @ESPE
  */
-public class ProfileManager {
+ public class ProfileManager {
 
     private Scanner sc = new Scanner(System.in);
 
@@ -19,16 +19,23 @@ public class ProfileManager {
 
     public void createMotherProfile() {
 
-        System.out.println("\n========== MOTHER REGISTRATION ==========");
+        System.out.println("\n ______    MOTHER REGISTRATION ______   ");
 
         String mFn = readOnlyLetters("First Name: ");
         String mLn = readOnlyLetters("Last Name: ");
         String mBd = readValidDate("Birth Date (YYYY-MM-DD): ");
         String mId = readValidId("ID (max 20 digits): ");
 
-        savedMother = new Mother(mFn, mLn, mId, mBd);
+        System.out.print("Mother Weight (kg): ");
+        double mWeight = sc.nextDouble();
 
-        System.out.println("\n========== BABY REGISTRATION ==========");
+        System.out.print("Mother Height (cm): ");
+        double mHeight = sc.nextDouble();
+        sc.nextLine();
+
+        savedMother = new Mother( mFn,mLn,mId,mBd,mWeight,mHeight);
+
+        System.out.println("\n  ______  BABY REGISTRATION ______   ");
         System.out.println("1. Baby Registration");
         System.out.println("2. Newborn Registration");
 
@@ -42,15 +49,7 @@ public class ProfileManager {
             int gestation = sc.nextInt();
             sc.nextLine();
 
-            savedBaby = new Baby(
-                    "Not registered",
-                    "Not registered",
-                    "Not registered",
-                    0,
-                    0,
-                    "Pending",
-                    false
-            );
+            savedBaby = new Baby("Not registered","Not registered","Not registered",0,0,"Pending",false );
 
             savedBaby.gestationPeriod = gestation;
 
@@ -72,15 +71,14 @@ public class ProfileManager {
 
             String bBd = readValidDate("Birth Date (YYYY-MM-DD): ");
 
-            savedBaby = new Baby(
-                    bFn,
-                    bLn,
-                    bId,
-                    0,
-                    0,
-                    bBd,
-                    false
-            );
+            System.out.print("Baby Weight (g): ");
+            int bWeight = sc.nextInt();
+
+            System.out.print("Baby Height (cm): ");
+            int bHeight = sc.nextInt();
+            sc.nextLine();
+
+            savedBaby = new Baby( bFn, bLn, bId, bWeight, bHeight, bBd, false);
 
             savedBaby.months = months;
         }

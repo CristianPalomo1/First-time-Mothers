@@ -6,16 +6,16 @@ package ec.edu.espe.mothersApp.model;
 import java.util.Scanner;
 
 /**
- *
- * @author sbart
+ * @author Jennyfer Nase, Error 404, @ESPE
  */
+
 public class MedicalHistory {
 
     public void showMedicalHistory() {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("===== MEDICAL HISTORY =====");
+        System.out.println("______ MEDICAL HISTORY ______ ");
 
         System.out.print("Mother Name: ");
         String motherName = sc.nextLine();
@@ -44,7 +44,7 @@ public class MedicalHistory {
         System.out.print("Baby Height (cm): ");
         int babyHeight = sc.nextInt();
 
-        System.out.println("===== HISTORY SUMMARY =====");
+        System.out.println("______  HISTORY SUMMARY ______ ");
 
         System.out.println("Mother: " + motherName);
         System.out.println("Baby: " + babyName);

@@ -13,86 +13,42 @@ import java.util.Scanner;
 
 public class PediatricGrowthValidator {
 
-    // 🔹 Variables globales (BIEN, las mantienes)
     public static double motherWeight;
     public static double motherHeight;
 
     public static double babyWeight;
     public static double babyHeight;
 
-    // ===============================
-    // ✅ VALIDAR CRECIMIENTO
-    // ===============================
     public static void validateGrowth() {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n========== VALIDATE PEDIATRIC GROWTH ==========");
-        System.out.println("1. Baby's information (Gestation period)");
-        System.out.println("2. Baby's information (Newborn)");
-        System.out.println("3. Mother's information");
+        System.out.println("\n  ______  VALIDATE PEDIATRIC GROWTH ______   ");
 
-        System.out.print("Select an option: ");
-        int option = sc.nextInt();
+        System.out.print("Enter baby weight (g): ");
+        babyWeight = sc.nextDouble();
 
-        switch (option) {
+        System.out.print("Enter baby height (cm): ");
+        babyHeight = sc.nextDouble();
 
-            case 1:
+        System.out.print("Enter mother's weight (kg): ");
+        motherWeight = sc.nextDouble();
 
-                System.out.print("Enter baby weight (g): ");
-                babyWeight = sc.nextDouble();
+        System.out.print("Enter mother's height (cm): ");
+        motherHeight = sc.nextDouble();
 
-                System.out.print("Enter baby size in the womb (cm): ");
-                babyHeight = sc.nextDouble();
-
-                showResult(babyWeight, babyHeight);
-                break;
-
-            case 2:
-
-                System.out.print("Enter baby weight (g): ");
-                babyWeight = sc.nextDouble();
-
-                System.out.print("Enter baby height (cm): ");
-                babyHeight = sc.nextDouble();
-
-                showResult(babyWeight, babyHeight);
-                break;
-
-            case 3:
-
-                System.out.print("Enter mother's weight (kg): ");
-                motherWeight = sc.nextDouble();
-
-                System.out.print("Enter mother's height (cm): ");
-                motherHeight = sc.nextDouble();
-
-                showResult(motherWeight, motherHeight);
-                break;
-
-            default:
-                System.out.println("Invalid option.");
-        }
+        showResult(babyWeight, babyHeight);
     }
 
-    // ===============================
-    // ✅ RESULTADO CORREGIDO
-    // ===============================
     public static void showResult(double weight, double size) {
 
-        System.out.println("\n========== RESULTS ==========");
+        System.out.println("\n  RESULTS  ");
 
-        // 🔴 CAMBIO IMPORTANTE: usar AND en vez de OR
         if (weight >= 2500 && size >= 45) {
-
             System.out.println("Growth Status: NORMAL");
-
         } else if (weight >= 1800 && size >= 35) {
-
             System.out.println("Growth Status: LOW RISK");
-
         } else {
-
             System.out.println("Growth Status: SEVERE");
         }
     }

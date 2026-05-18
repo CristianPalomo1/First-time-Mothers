@@ -19,7 +19,7 @@ public class InteractiveChat {
 
         String message;
 
-        System.out.println("\n-- COMMUNITY CHAT FOR MOTHERS ----");
+        System.out.println("\n____  COMMUNITY CHAT FOR MOTHERS____ ");
         System.out.println("Type 'exit' to close the chat.\n");
 
         while (true) {

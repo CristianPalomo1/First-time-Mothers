@@ -19,7 +19,7 @@ public class MedicalRecord {
 
         String answer;
 
-        System.out.println("\n========== WARNING SIGNS MONITOR ==========");
+        System.out.println("\n  ______ WARNING SIGNS MONITOR______  ");
 
         System.out.print("Do you have fever? (yes/no): ");
         answer = sc.nextLine();

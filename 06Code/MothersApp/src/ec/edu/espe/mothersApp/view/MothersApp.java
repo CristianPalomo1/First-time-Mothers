@@ -2,6 +2,7 @@ package ec.edu.espe.mothersApp.view;
 
 import ec.edu.espe.mothersApp.model.*;
 import java.util.Scanner;
+import ec.edu.espe.mothersApp.model.ProfileManager;
 
 /**
  * @author Jennyfer Nase, Error 404, @ESPE
@@ -11,12 +12,13 @@ public class MothersApp {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        ProfileManager manager = new ProfileManager();
 
         int option;
 
         do {
 
-            System.out.println("\n--- MATERNITY HEALTH CARE SYSTEM ---");
+            System.out.println("\n____  MATERNITY HEALTH CARE SYSTEM ____ ");
             System.out.println("1. Register Mother and Baby Profiles");
             System.out.println("2. Calculate Gestation Week");
             System.out.println("3. Validate Pediatric Growth");
@@ -35,10 +37,7 @@ public class MothersApp {
             switch (option) {
 
                 case 1:
-
-                    ProfileManager profileManager = new ProfileManager();
-                    profileManager.createMotherProfile();
-
+                     manager.createMotherProfile();
                     break;
 
                 case 2:
@@ -81,7 +80,7 @@ public class MothersApp {
 
                 case 7:
 
-                     sc.nextLine(); // limpiar buffer
+                     sc.nextLine(); 
 
                     System.out.print("Enter doctor's recommendation: ");
                     String recommendation = sc.nextLine();
@@ -103,7 +102,7 @@ public class MothersApp {
 
                 case 10:
 
-                    showMedicalHistory();
+                    showHistory();
 
                     break;
 
@@ -121,44 +120,40 @@ public class MothersApp {
         } while (option != 11);
     }
 
-    public static void showMedicalHistory() {
+    
+    public static void showHistory() {
 
-        System.out.println("\n======================================");
+        if (ProfileManager.savedMother == null ||
+            ProfileManager.savedBaby == null) {
+
+            System.out.println("No profile registered.");
+            return;
+        }
+
+        Mother m = ProfileManager.savedMother;
+        Baby b = ProfileManager.savedBaby;
+
+        System.out.println("\n___________________________________");
         System.out.println("         MEDICAL HISTORY");
-        System.out.println("======================================");
+        System.out.println("___________________________________");
 
-        if (ProfileManager.savedMother != null) {
+        System.out.println("\nMother:");
+        System.out.println(m.firstName + " " + m.lastName);
+        System.out.println("ID: " + m.id);
+        System.out.println("Birth Date: " + m.birthDate);
 
-            System.out.println("\nMother:");
-            System.out.println(ProfileManager.savedMother.firstName + " "
-                    + ProfileManager.savedMother.lastName);
+        System.out.println("\nBaby:");
+        System.out.println(b.firstName + " " + b.lastName);
+        System.out.println("Expected Birth Date: " + b.birthDate);
+        System.out.println("Appointment: General Control");
+        System.out.println("Recommendation: Healthy monitoring");
 
-            System.out.println("ID: " + ProfileManager.savedMother.id);
-            System.out.println("Birth Date: " + ProfileManager.savedMother.birthDate);
-        }
+        System.out.println("Mother Weight: " + m.weight + " kg");
+        System.out.println("Mother Height: " + m.height + " cm");
 
-        if (ProfileManager.savedBaby != null) {
+        System.out.println("Baby Weight: " + b.weight + " g");
+        System.out.println("Baby Height: " + b.height + " cm");
 
-            System.out.println("\nBaby:");
-            System.out.println(ProfileManager.savedBaby.firstName + " "
-                    + ProfileManager.savedBaby.lastName);
-
-            System.out.println("Expected/Birth Date: "
-                    + ProfileManager.savedBaby.birthDate);
-
-            System.out.println("Appointment: General Control");
-            System.out.println("Recommendation: Healthy monitoring");
-
-            System.out.println("Mother Weight: Pending");
-            System.out.println("Mother Height: Pending");
-
-            System.out.println("Baby Weight: "
-                    + ProfileManager.savedBaby.weight + " g");
-
-            System.out.println("Baby Height: "
-                    + ProfileManager.savedBaby.height + " cm");
-        }
-
-        System.out.println("======================================");
+        System.out.println("___________________________________");
     }
 }

@@ -16,7 +16,7 @@ public class AlarmValidator {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n===== HEALTH RISK CLASSIFIER =====");
+        System.out.println("\n  HEALTH RISK CLASSIFIER  ");
 
         System.out.print("Enter baby temperature (°C): ");
         double temperature = sc.nextDouble();
@@ -62,7 +62,7 @@ public class AlarmValidator {
             System.out.println("WARNING: Dangerous activity level detected.");
         }
 
-        System.out.println("\n----FINAL RESULT --");
+        System.out.println("\n____ FINAL RESULT ____ ");
 
         if (danger) {
 

@@ -24,7 +24,7 @@ public class MedicalDataBase {
 
     public void showHistory() {
 
-        System.out.println("\n-- MEDICAL HISTORY ---");
+        System.out.println("\n____  MEDICAL HISTORY ____ ");
 
         if (medicalHistory.isEmpty()) {
 

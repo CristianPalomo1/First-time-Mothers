@@ -54,10 +54,10 @@ public class GestationCalculator {
 
         String trimester = getTrimester(week);
 
-        System.out.println("\n-------------------------------------------");
-        System.out.println(">>> RESULT: WEEK " + week + " OF PREGNANCY");
-        System.out.println(">>> TRIMESTER: " + trimester);
-        System.out.println(">>> ESTIMATED DUE DATE (FPP): " + dueDate);
+        System.out.println("\n___________________________________");
+        System.out.println(" RESULT: WEEK " + week + " OF PREGNANCY");
+        System.out.println(" TRIMESTER: " + trimester);
+        System.out.println("ESTIMATED DUE DATE (FPP): " + dueDate);
     }
 
     private String getTrimester(int week) {
