@@ -17,36 +17,17 @@ public class ScheduleAppointment {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n===== MEDICAL APPOINTMENTS =====");
+        System.out.println("\n===== MEDICAL CALENDAR =====");
 
-        System.out.println("1. 2026-05-20 | 08:00 AM");
-        System.out.println("2. 2026-05-20 | 10:00 AM");
-        System.out.println("3. 2026-05-21 | 02:00 PM");
-        System.out.println("4. 2026-05-22 | 04:00 PM");
+        System.out.print("Enter appointment date (YYYY-MM-DD): ");
+        String date = sc.nextLine();
 
-        System.out.print("\nSelect an appointment: ");
-        int option = sc.nextInt();
+        System.out.print("Reminder message: ");
+        String reminder = sc.nextLine();
 
-        switch (option) {
+        System.out.println("\nAppointment saved successfully!");
 
-            case 1:
-                System.out.println("Appointment scheduled for 2026-05-20 at 08:00 AM");
-                break;
-
-            case 2:
-                System.out.println("Appointment scheduled for 2026-05-20 at 10:00 AM");
-                break;
-
-            case 3:
-                System.out.println("Appointment scheduled for 2026-05-21 at 02:00 PM");
-                break;
-
-            case 4:
-                System.out.println("Appointment scheduled for 2026-05-22 at 04:00 PM");
-                break;
-
-            default:
-                System.out.println("Invalid option.");
-        }
+        System.out.println("Appointment Date: " + date);
+        System.out.println("Reminder: " + reminder);
     }
 }

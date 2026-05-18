@@ -2,6 +2,7 @@ package ec.edu.espe.mothersApp.view;
 
 import ec.edu.espe.mothersApp.model.*;
 import java.util.Scanner;
+import ec.edu.espe.mothersApp.model.MedicalHistory;
 
 /**
  * @author Jennyfer Nase, Error 404, @ESPE
@@ -25,15 +26,16 @@ public class MothersApp {
             System.out.println("4. Manage Medical Appointment");
             System.out.println("5. Classify Health Risk Level");
             System.out.println("6. Interactive Community Chat for Mothers");
-            System.out.println("7. Persist Medical History");
+            System.out.println("7. Doctor Recommendations");
             System.out.println("8. Provide Educational Resource");
             System.out.println("9. Monitor Warning Signs");
-            System.out.println("10. Exit");
+            System.out.println("10. Medical History");
+            System.out.println("11. Exit");
 
             System.out.print("Select an option: ");
             option = sc.nextInt();
 
-            switch (option) {
+            switch(option) {
 
                 case 1:
 
@@ -73,16 +75,16 @@ public class MothersApp {
 
                 case 7:
 
-                    sc.nextLine();
+                 sc.nextLine();
 
-                    System.out.print("Enter mother's medical record: ");
-                    String history = sc.nextLine();
+                System.out.print("Enter doctor's recommendation: ");
+                String history = sc.nextLine();
 
-                    db.saveHistory(history);
+                db.saveHistory(history);
 
-                    db.showHistory();
+                db.showHistory();
 
-                    break;
+                break;
 
                 case 8:
 
@@ -96,7 +98,15 @@ public class MothersApp {
 
                     break;
 
+                    
                 case 10:
+                
+                MedicalHistory medicalHistory = new MedicalHistory();
+                medicalHistory.showMedicalHistory();
+
+                 break;
+                 
+                case 11:
 
                     System.out.println("Exiting system...");
 
@@ -107,6 +117,6 @@ public class MothersApp {
                     System.out.println("Invalid option.");
             }
 
-        } while (option != 10);
+        } while (option != 11);
     }
 }
