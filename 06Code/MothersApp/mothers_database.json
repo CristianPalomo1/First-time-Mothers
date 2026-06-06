@@ -1,0 +1,44 @@
+[
+  {
+    "firstName": "Lorena",
+    "lastName": "Mendez",
+    "id": "1755636984",
+    "birthDate": "2006-10-10",
+    "weight": 56.4,
+    "height": 1.65,
+    "babies": [
+      {
+        "firstName": "Martin",
+        "lastName": "Perez",
+        "id": "1712554193",
+        "weight": 3900,
+        "height": 26,
+        "birthDate": "2026-03-01",
+        "born": false,
+        "gestationPeriod": 0,
+        "months": 2
+      }
+    ]
+  },
+  {
+    "firstName": "Julia",
+    "lastName": "Zambrano",
+    "id": "12567894554",
+    "birthDate": "2000-03-24",
+    "weight": 65.4,
+    "height": 1.49,
+    "babies": [
+      {
+        "firstName": "Juliana",
+        "lastName": "Proaño",
+        "id": "12567897895",
+        "weight": 1500,
+        "height": 50,
+        "birthDate": "2006-02-14",
+        "born": false,
+        "gestationPeriod": 0,
+        "months": 3
+      }
+    ]
+  }
+]
