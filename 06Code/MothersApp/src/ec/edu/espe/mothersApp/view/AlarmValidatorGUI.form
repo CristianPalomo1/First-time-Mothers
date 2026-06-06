@@ -99,12 +99,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblBabyVitalSigns" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="lblTemperature" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSpinner1" max="32767" attributes="0"/>
+                          <Component id="spnTemperature" max="32767" attributes="0"/>
                       </Group>
                       <Component id="lblSymptoms" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="chkRespiratorydistress" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -124,7 +124,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spnTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblSymptoms" min="-2" max="-2" attributes="0"/>
@@ -152,7 +152,7 @@
             <Property name="text" type="java.lang.String" value="Temperature (&#xb0;C)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner1">
+        <Component class="javax.swing.JSpinner" name="spnTemperature">
         </Component>
         <Component class="javax.swing.JLabel" name="lblSymptoms">
           <Properties>

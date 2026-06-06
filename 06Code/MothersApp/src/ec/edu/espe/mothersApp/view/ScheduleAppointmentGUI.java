@@ -4,6 +4,8 @@
  */
 package ec.edu.espe.mothersApp.view;
 
+import ec.edu.espe.mothersApp.model.ScheduleAppointment;
+
 /**
  *
  * @author Cristian
@@ -17,6 +19,8 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
      */
     public ScheduleAppointmentGUI() {
         initComponents();
+        lblappointmentScheduled.setText("");
+        lblappointmentScheduled.setOpaque(false);
     }
 
     /**
@@ -32,14 +36,14 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         txtappointmentDate = new javax.swing.JTextField();
         lblappointmentDetails = new javax.swing.JLabel();
         lblappointmentDate = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblReminder = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtreminder = new javax.swing.JTextField();
         lbldoctorRecommendation = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtdoctorRecommendation = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblappointmentScheduled = new javax.swing.JLabel();
         btnsaveAppointment = new javax.swing.JButton();
         btnviewAppointments = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
@@ -54,7 +58,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
 
         lblappointmentDate.setText("Appointment Date");
 
-        jLabel2.setText("Reminder");
+        lblReminder.setText("Reminder");
 
         jScrollPane1.setViewportView(txtreminder);
 
@@ -70,7 +74,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblReminder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblappointmentDetails)
@@ -94,7 +98,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblReminder))
                 .addGap(13, 13, 13)
                 .addComponent(lbldoctorRecommendation)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -104,7 +108,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
 
         jLabel1.setText("MANAGE MEDICAL APPOINTMENT");
 
-        jLabel3.setText(" Appointment scheduled for 2024-07-15");
+        lblappointmentScheduled.setText(" Appointment scheduled for 2024-07-15");
 
         btnsaveAppointment.setText("Save Appointment");
 
@@ -133,7 +137,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblappointmentScheduled, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,7 +154,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
+                        .addComponent(lblappointmentScheduled))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(btnsaveAppointment)
@@ -167,7 +171,64 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void showStatus(String msg, boolean success) {
+        lblappointmentScheduled.setText(msg);
+        if (success) {
+            lblappointmentScheduled.setForeground(new java.awt.Color(59, 109, 17));
+            lblappointmentScheduled.setBackground(new java.awt.Color(234, 243, 222));
+        } else {
+            lblappointmentScheduled.setForeground(new java.awt.Color(133, 79, 11));
+            lblappointmentScheduled.setBackground(new java.awt.Color(250, 238, 218));
+        }
+        lblappointmentScheduled.setOpaque(true);
+        lblappointmentScheduled.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 10, 4, 10));
+    }
+    
+    private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveAppointmentActionPerformed
+        String date     = txtappointmentDate.getText().trim();
+        String reminder = txtreminder.getText().trim();
+        if (date.isEmpty()) {
+            showStatus("⚠ Please enter an appointment date.", false);
+            return;
+        }
+        ScheduleAppointment.scheduleAppointment(date, reminder);
+        showStatus("✔ Appointment scheduled for " + date, true);
+    }
+    
+    private void btnviewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewAppointmentsActionPerformed
+        String date     = txtappointmentDate.getText().trim();
+        String reminder = txtreminder.getText().trim();
+        String msg = date.isEmpty()
+            ? "No appointment scheduled."
+            : "Date:     " + date + "\nReminder: " + (reminder.isEmpty() ? "(none)" : reminder);
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "=== APPOINTMENTS ===\n\n" + msg,
+            "View Appointments",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String recommendation = txtdoctorRecommendation.getText().trim();
+        if (recommendation.isEmpty()) {
+            showStatus("⚠ Please enter a doctor recommendation before saving.", false);
+            return;
+        }
+        ScheduleAppointment.saveMedicalHistory(recommendation);
+        showStatus("✔ Medical history saved successfully.", true);
+    }
+    
+    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed
+        txtappointmentDate.setText("");
+        txtreminder.setText("");
+        txtdoctorRecommendation.setText("");
+        lblappointmentScheduled.setText("");
+        lblappointmentScheduled.setOpaque(false);
+        lblappointmentScheduled.setBorder(null);
+    }
+    
+    private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackMenuActionPerformed
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -200,13 +261,13 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnsaveAppointment;
     private javax.swing.JButton btnviewAppointments;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblReminder;
     private javax.swing.JLabel lblappointmentDate;
     private javax.swing.JLabel lblappointmentDetails;
+    private javax.swing.JLabel lblappointmentScheduled;
     private javax.swing.JLabel lbldoctorRecommendation;
     private javax.swing.JTextField txtappointmentDate;
     private javax.swing.JTextField txtdoctorRecommendation;

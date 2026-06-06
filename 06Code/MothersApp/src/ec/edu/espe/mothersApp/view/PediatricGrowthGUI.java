@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ec.edu.espe.mothersApp.view;
-
+import ec.edu.espe.mothersApp.model.PediatricGrowthValidator;
 /**
  *
  * @author Cristian
@@ -11,12 +11,13 @@ package ec.edu.espe.mothersApp.view;
 public class PediatricGrowthGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PediatricGrowthGUI.class.getName());
-
+    
     /**
      * Creates new form PediatricGrowthGUI
      */
     public PediatricGrowthGUI() {
         initComponents();
+        resetResultLabels();
     }
 
     /**
@@ -102,6 +103,16 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
         lblWeightkg.setText("Weight (kg)");
 
         lblHeight1.setText("Height (cm)");
+
+        txtWeightkg.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                txtWeightkgAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -235,11 +246,102 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void resetResultLabels() {
+        java.awt.Color grayFg = new java.awt.Color(120, 120, 120);
+        lblNORMAL.setForeground(grayFg);
+        lblLOWRISK.setForeground(grayFg);
+        lblSEVERE.setForeground(grayFg);
+        lblNORMAL.setOpaque(false);
+        lblLOWRISK.setOpaque(false);
+        lblSEVERE.setOpaque(false);
+    }
+    
+    
     private void btnvalidateGrowthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvalidateGrowthActionPerformed
-        // TODO add your handling code here:
+        if (txtWeight.getText().trim().isEmpty() || txtHeight.getText().trim().isEmpty()
+                || txtWeightkg.getText().trim().isEmpty() || txtHeight1.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Please fill in all fields before validating.",
+                "Missing Data", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            double babyWeight  = Double.parseDouble(txtWeight.getText().trim());
+            double babyHeight  = Double.parseDouble(txtHeight.getText().trim());
+            double motherWeight = Double.parseDouble(txtWeightkg.getText().trim());
+            double motherHeight = Double.parseDouble(txtHeight1.getText().trim());
+
+            PediatricGrowthValidator.babyWeight   = babyWeight;
+            PediatricGrowthValidator.babyHeight   = babyHeight;
+            PediatricGrowthValidator.motherWeight = motherWeight;
+            PediatricGrowthValidator.motherHeight = motherHeight;
+
+            resetResultLabels();
+
+            java.awt.Color greenFg = new java.awt.Color(59, 109, 17);
+            java.awt.Color greenBg = new java.awt.Color(234, 243, 222);
+            java.awt.Color amberFg = new java.awt.Color(133, 79, 11);
+            java.awt.Color amberBg = new java.awt.Color(250, 238, 218);
+            java.awt.Color redFg   = new java.awt.Color(163, 45, 45);
+            java.awt.Color redBg   = new java.awt.Color(252, 235, 235);
+            java.awt.Color dimFg   = new java.awt.Color(180, 180, 180);
+
+            javax.swing.border.Border padding =
+                javax.swing.BorderFactory.createEmptyBorder(4, 8, 4, 8);
+
+            if (babyWeight >= 2500 && babyHeight >= 45) {
+                lblNORMAL.setForeground(greenFg);
+                lblNORMAL.setBackground(greenBg);
+                lblNORMAL.setOpaque(true);
+                lblNORMAL.setBorder(padding);
+                lblLOWRISK.setForeground(dimFg);
+                lblSEVERE.setForeground(dimFg);
+
+            } else if (babyWeight >= 1800 && babyHeight >= 35) {
+                lblLOWRISK.setForeground(amberFg);
+                lblLOWRISK.setBackground(amberBg);
+                lblLOWRISK.setOpaque(true);
+                lblLOWRISK.setBorder(padding);
+                lblNORMAL.setForeground(dimFg);
+                lblSEVERE.setForeground(dimFg);
+
+            } else {
+                lblSEVERE.setForeground(redFg);
+                lblSEVERE.setBackground(redBg);
+                lblSEVERE.setOpaque(true);
+                lblSEVERE.setBorder(padding);
+                lblNORMAL.setForeground(dimFg);
+                lblLOWRISK.setForeground(dimFg);
+            }
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Please enter valid numbers only (e.g. 3200, 50.5).",
+                "Invalid Input", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnvalidateGrowthActionPerformed
 
+    private void txtWeightkgAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtWeightkgAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWeightkgAncestorAdded
+
+    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {
+        txtWeight.setText("");
+        txtHeight.setText("");
+        txtWeightkg.setText("");
+        txtHeight1.setText("");
+        resetResultLabels();
+        lblNORMAL.setText(" NORMAL — Baby weight ≥ 2500g and height ≥ 45cm");
+        lblLOWRISK.setText("LOW RISK — Weight ≥ 1800g and height ≥ 35cm");
+        lblSEVERE.setText(" SEVERE — Below minimum thresholds");
+        lblNORMAL.setBorder(null);
+        lblLOWRISK.setBorder(null);
+        lblSEVERE.setBorder(null);
+    }
+    private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -260,9 +362,8 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PediatricGrowthGUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ec.edu.espe.mothersApp.view.PediatricGrowthGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

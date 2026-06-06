@@ -16,9 +16,15 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
      * Creates new form AlarmValidatorGUI
      */
     public AlarmValidatorGUI() {
-        initComponents();
+        initComponents(); 
+        javax.swing.SpinnerNumberModel modeloTemp = new javax.swing.SpinnerNumberModel(
+            36.8, 30.0, 42.0, 0.1
+        );
+        spnTemperature.setModel(modeloTemp);
+        lblcriticalRisk.setText("");
+        lblcriticalRisk.setOpaque(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +38,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblBabyVitalSigns = new javax.swing.JLabel();
         lblTemperature = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spnTemperature = new javax.swing.JSpinner();
         lblSymptoms = new javax.swing.JLabel();
         chkRespiratorydistress = new javax.swing.JCheckBox();
         chkFeedingproblems = new javax.swing.JCheckBox();
@@ -70,12 +76,12 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBabyVitalSigns)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblTemperature)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1))
+                        .addComponent(spnTemperature))
                     .addComponent(lblSymptoms)
                     .addComponent(chkRespiratorydistress)
                     .addComponent(chkFeedingproblems)
@@ -91,7 +97,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTemperature)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblSymptoms)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -165,9 +171,46 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed
-        // TODO add your handling code here:
+        spnTemperature.setValue(36.8);
+        chkRespiratorydistress.setSelected(false);
+        chkFeedingproblems.setSelected(false);
+        chkAbnormalskincolor.setSelected(false);
+        chkLethargy.setSelected(false);
+        lblcriticalRisk.setText("");
+        lblcriticalRisk.setOpaque(false);
+        lblcriticalRisk.setBorder(null);
     }//GEN-LAST:event_btnclearFieldsActionPerformed
+    
+    private void btnclassifyRiksActionPerformed(java.awt.event.ActionEvent evt) {
+        double temp        = (Double) spnTemperature.getValue();
+        boolean respiratory = chkRespiratorydistress.isSelected();
+        boolean feeding     = chkFeedingproblems.isSelected();
+        boolean skin        = chkAbnormalskincolor.isSelected();
+        boolean lethargy    = chkLethargy.isSelected();
 
+        boolean danger = false;
+        if (temp > 38 || temp < 35.5) danger = true;
+        if (respiratory) danger = true;
+        if (feeding)     danger = true;
+        if (skin)        danger = true;
+        if (lethargy)    danger = true;
+
+        if (danger) {
+            lblcriticalRisk.setText("⚠ CRITICAL RISK — Immediate hospital attention required.");
+            lblcriticalRisk.setForeground(new java.awt.Color(163, 45, 45));
+            lblcriticalRisk.setBackground(new java.awt.Color(252, 235, 235));
+        } else {
+            lblcriticalRisk.setText("✔ NORMAL — Baby condition appears normal.");
+            lblcriticalRisk.setForeground(new java.awt.Color(59, 109, 17));
+            lblcriticalRisk.setBackground(new java.awt.Color(234, 243, 222));
+        }
+        lblcriticalRisk.setOpaque(true);
+        lblcriticalRisk.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 10, 6, 10));
+    }
+    
+    private void btnbacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -188,7 +231,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AlarmValidatorGUI().setVisible(true));
     }
@@ -204,10 +247,10 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblBabyVitalSigns;
     private javax.swing.JLabel lblSymptoms;
     private javax.swing.JLabel lblTemperature;
     private javax.swing.JLabel lblcriticalRisk;
+    private javax.swing.JSpinner spnTemperature;
     // End of variables declaration//GEN-END:variables
 }
