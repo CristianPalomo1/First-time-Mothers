@@ -48,6 +48,8 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
         lblappointmentDetails.setText("Appointment Details");
 
         lblappointmentDate.setText("Appointment Date");

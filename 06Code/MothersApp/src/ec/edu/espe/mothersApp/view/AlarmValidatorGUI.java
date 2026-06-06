@@ -48,6 +48,8 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
         lblBabyVitalSigns.setText("Baby Vital Signs");
 
         lblTemperature.setText("Temperature (°C)");
