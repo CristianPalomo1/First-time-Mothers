@@ -15,7 +15,7 @@ public class MongoDBConnection {
 
     private static MongoClient mongoClient;
     private static final String CONNECTION_STRING = 
-        "mongodb+srv://cristian:Cristian@cris.djonnp4.mongodb.net/?appName=Cris";
+        "mongodb+srv://cristian:<db_password>@cris.djonnp4.mongodb.net/?appName=Cris";
     private static final String DATABASE_NAME = "mothersApp";
 
     public static MongoDatabase getDatabase() {
