@@ -34,6 +34,9 @@ import java.util.Scanner;
         sc.nextLine();
 
         savedMother = new Mother( mFn,mLn,mId,mBd,mWeight,mHeight);
+        
+        MotherRepository repo = new MotherRepository();
+        repo.save(savedMother);
 
         System.out.println("\n  ______  BABY REGISTRATION ______   ");
         System.out.println("1. Baby Registration");

@@ -107,9 +107,8 @@ public class MothersApp {
                     break;
 
                 case 11:
-
+                    MongoDBConnection.close();
                     System.out.println("Exiting system...");
-
                     break;
 
                 default:
