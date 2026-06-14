@@ -35,8 +35,8 @@ import java.util.Scanner;
 
         savedMother = new Mother( mFn,mLn,mId,mBd,mWeight,mHeight);
         
-        MotherRepository repo = new MotherRepository();
-        repo.save(savedMother);
+        MedicalDataBase db = new MedicalDataBase();
+        db.saveHistory(savedMother);
 
         System.out.println("\n  ______  BABY REGISTRATION ______   ");
         System.out.println("1. Baby Registration");

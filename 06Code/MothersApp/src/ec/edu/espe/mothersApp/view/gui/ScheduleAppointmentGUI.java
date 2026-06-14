@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ec.edu.espe.mothersApp.view;
+package ec.edu.espe.mothersApp.view.gui;
 
 import ec.edu.espe.mothersApp.model.ScheduleAppointment;
 
@@ -184,7 +184,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         lblappointmentScheduled.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 10, 4, 10));
     }
     
-    private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveAppointmentActionPerformed
+    private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         String date     = txtappointmentDate.getText().trim();
         String reminder = txtreminder.getText().trim();
         if (date.isEmpty()) {
@@ -195,7 +195,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         showStatus("✔ Appointment scheduled for " + date, true);
     }
     
-    private void btnviewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewAppointmentsActionPerformed
+    private void btnviewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         String date     = txtappointmentDate.getText().trim();
         String reminder = txtreminder.getText().trim();
         String msg = date.isEmpty()
@@ -207,7 +207,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
             javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }
     
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
         String recommendation = txtdoctorRecommendation.getText().trim();
         if (recommendation.isEmpty()) {
             showStatus("⚠ Please enter a doctor recommendation before saving.", false);
@@ -217,7 +217,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         showStatus("✔ Medical history saved successfully.", true);
     }
     
-    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed
+    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {                                               
         txtappointmentDate.setText("");
         txtreminder.setText("");
         txtdoctorRecommendation.setText("");
@@ -226,7 +226,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         lblappointmentScheduled.setBorder(null);
     }
     
-    private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackMenuActionPerformed
+    private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.dispose();
     }
     /**

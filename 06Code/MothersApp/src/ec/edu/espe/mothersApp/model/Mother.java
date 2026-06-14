@@ -1,5 +1,7 @@
 package ec.edu.espe.mothersApp.model;
 
+import java.util.ArrayList;
+
 /**
  * @author Jennyfer Nase, Error 404, @ESPE
  */
@@ -11,6 +13,7 @@ public class Mother {
     public String birthDate;
     public double weight;
     public double height;
+    public ArrayList<Baby> babies; 
 
     public Mother(String firstName, String lastName,
                   String id, String birthDate,
@@ -22,5 +25,6 @@ public class Mother {
         this.birthDate = birthDate;
         this.weight = weight;
         this.height = height;
+        this.babies = new ArrayList<>(); 
     }
 }

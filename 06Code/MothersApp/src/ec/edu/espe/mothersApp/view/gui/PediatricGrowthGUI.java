@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ec.edu.espe.mothersApp.view;
+package ec.edu.espe.mothersApp.view.gui;
 import ec.edu.espe.mothersApp.model.PediatricGrowthValidator;
 /**
  *
@@ -363,7 +363,7 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ec.edu.espe.mothersApp.view.PediatricGrowthGUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ec.edu.espe.mothersApp.view.gui.PediatricGrowthGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

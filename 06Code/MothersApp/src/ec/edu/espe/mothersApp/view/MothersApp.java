@@ -13,6 +13,7 @@ public class MothersApp {
 
         Scanner sc = new Scanner(System.in);
         ProfileManager manager = new ProfileManager();
+        MedicalDataBase db = new MedicalDataBase();
 
         int option;
 
@@ -38,8 +39,15 @@ public class MothersApp {
 
                 case 1:
                      manager.createMotherProfile();
+                     
+                     if (ProfileManager.savedMother != null && ProfileManager.savedBaby != null) {
+                        ProfileManager.savedMother.babies.clear(); 
+                        ProfileManager.savedMother.babies.add(ProfileManager.savedBaby);
+                        
+                        db.saveHistory(ProfileManager.savedMother);
+                     }
                     break;
-
+                    
                 case 2:
 
                     new GestationCalculator().calculateFromWeek();
@@ -102,12 +110,11 @@ public class MothersApp {
 
                 case 10:
 
-                    showHistory();
+                    db.showHistory();
 
                     break;
 
                 case 11:
-                    MongoDBConnection.close();
                     System.out.println("Exiting system...");
                     break;
 
