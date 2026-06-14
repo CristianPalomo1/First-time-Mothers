@@ -76,19 +76,22 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblappointmentDetails)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblappointmentDate)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtappointmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbldoctorRecommendation))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblReminder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblappointmentDetails)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblappointmentDate)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtappointmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbldoctorRecommendation)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,8 +109,8 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(lbldoctorRecommendation)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.setText("MANAGE MEDICAL APPOINTMENT");
@@ -116,15 +119,19 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
 
         btnsaveAppointment.setBackground(new java.awt.Color(230, 230, 248));
         btnsaveAppointment.setText("Save Appointment");
+        btnsaveAppointment.addActionListener(this::btnsaveAppointmentActionPerformed);
 
         btnviewAppointments.setBackground(new java.awt.Color(229, 229, 255));
         btnviewAppointments.setText("View Appointments");
+        btnviewAppointments.addActionListener(this::btnviewAppointmentsActionPerformed);
 
         btnSave.setBackground(new java.awt.Color(228, 228, 252));
         btnSave.setText("Save Medical History ");
+        btnSave.addActionListener(this::btnSaveActionPerformed);
 
         btnclearFields.setBackground(new java.awt.Color(224, 224, 249));
         btnclearFields.setText("Clear Fields");
+        btnclearFields.addActionListener(this::btnclearFieldsActionPerformed);
 
         btnbackMenu.setBackground(new java.awt.Color(227, 227, 248));
         btnbackMenu.setText("Back to Menu");
@@ -134,25 +141,26 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnsaveAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnviewAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnclearFields, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnbackMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblappointmentScheduled, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(173, 173, 173))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnviewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnsaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSave)
+                            .addComponent(btnclearFields, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnbackMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblappointmentScheduled, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(102, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +170,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblappointmentScheduled))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(btnsaveAppointment)
@@ -176,7 +182,9 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                         .addComponent(btnclearFields)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnbackMenu)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblappointmentScheduled)
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -185,21 +193,9 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
     private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackMenuActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnbackMenuActionPerformed
-    private void showStatus(String msg, boolean success) {
-        lblappointmentScheduled.setText(msg);
-        if (success) {
-            lblappointmentScheduled.setForeground(new java.awt.Color(59, 109, 17));
-            lblappointmentScheduled.setBackground(new java.awt.Color(234, 243, 222));
-        } else {
-            lblappointmentScheduled.setForeground(new java.awt.Color(133, 79, 11));
-            lblappointmentScheduled.setBackground(new java.awt.Color(250, 238, 218));
-        }
-        lblappointmentScheduled.setOpaque(true);
-        lblappointmentScheduled.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 10, 4, 10));
-    }
-    
-    private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        String date     = txtappointmentDate.getText().trim();
+
+    private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveAppointmentActionPerformed
+    String date     = txtappointmentDate.getText().trim();
         String reminder = txtreminder.getText().trim();
         if (date.isEmpty()) {
             showStatus(" Please enter an appointment date.", false);
@@ -211,19 +207,19 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         } else {
             showStatus(" Database Failure: Check console logs.", false);
         }
-    }
-    
-    private void btnviewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-        String remoteData = controller.getAllAppointmentsFromDB();
+    }//GEN-LAST:event_btnsaveAppointmentActionPerformed
+
+    private void btnviewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewAppointmentsActionPerformed
+    String remoteData = controller.getAllAppointmentsFromDB();
        
         javax.swing.JOptionPane.showMessageDialog(this,
             "=== MONGODB CLUSTER APPOINTMENTS ===\n\n" + remoteData,
             "Active Clinical Database",
             javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        String recommendation = txtdoctorRecommendation.getText().trim();
+    }//GEN-LAST:event_btnviewAppointmentsActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    String recommendation = txtdoctorRecommendation.getText().trim();
         if (recommendation.isEmpty()) {
             showStatus("Please enter a doctor recommendation before saving.", false);
             return;
@@ -234,15 +230,27 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         } else {
             showStatus(" Connection Failure during insertion.", false);
         }
-    }
-    
-    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        txtappointmentDate.setText("");
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed
+    txtappointmentDate.setText("");
         txtreminder.setText("");
         txtdoctorRecommendation.setText("");
         lblappointmentScheduled.setText("");
         lblappointmentScheduled.setOpaque(false);
         lblappointmentScheduled.setBorder(null);
+    }//GEN-LAST:event_btnclearFieldsActionPerformed
+    private void showStatus(String msg, boolean success) {
+        lblappointmentScheduled.setText(msg);
+        if (success) {
+            lblappointmentScheduled.setForeground(new java.awt.Color(59, 109, 17));
+            lblappointmentScheduled.setBackground(new java.awt.Color(234, 243, 222));
+        } else {
+            lblappointmentScheduled.setForeground(new java.awt.Color(133, 79, 11));
+            lblappointmentScheduled.setBackground(new java.awt.Color(250, 238, 218));
+        }
+        lblappointmentScheduled.setOpaque(true);
+        lblappointmentScheduled.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 10, 4, 10));
     }
     
     /**

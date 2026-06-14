@@ -198,6 +198,7 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
 
         btnclearFields.setBackground(new java.awt.Color(227, 227, 252));
         btnclearFields.setText("Clear Fields");
+        btnclearFields.addActionListener(this::btnclearFieldsActionPerformed);
 
         btnbackMenu.setBackground(new java.awt.Color(222, 222, 246));
         btnbackMenu.setText("Back to Menu");
@@ -349,8 +350,8 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnbackMenuActionPerformed
 
-    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {
-        txtWeight.setText("");
+    private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed
+    txtWeight.setText("");
         txtHeight.setText("");
         txtWeightkg.setText("");
         txtHeight1.setText("");
@@ -361,7 +362,8 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
         lblNORMAL.setBorder(null);
         lblLOWRISK.setBorder(null);
         lblSEVERE.setBorder(null);
-    }
+    }//GEN-LAST:event_btnclearFieldsActionPerformed
+
     /**
      * @param args the command line arguments
      */

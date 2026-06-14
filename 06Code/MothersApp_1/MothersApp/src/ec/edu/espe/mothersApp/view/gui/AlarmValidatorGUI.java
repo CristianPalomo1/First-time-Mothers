@@ -115,6 +115,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
 
         btnclassifyRiks.setBackground(new java.awt.Color(239, 239, 253));
         btnclassifyRiks.setText("Classify Riks");
+        btnclassifyRiks.addActionListener(this::btnclassifyRiksActionPerformed);
 
         btnclearFields.setBackground(new java.awt.Color(235, 235, 250));
         btnclearFields.setText("Clear Fields");
@@ -122,6 +123,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
 
         btnbacktoMenu.setBackground(new java.awt.Color(236, 236, 253));
         btnbacktoMenu.setText("Back to Menu");
+        btnbacktoMenu.addActionListener(this::btnbacktoMenuActionPerformed);
 
         lblcriticalRisk.setForeground(new java.awt.Color(255, 51, 51));
         lblcriticalRisk.setText(" CRITICAL RISK — Immediate hospital attention required.");
@@ -169,7 +171,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
                         .addComponent(btnbacktoMenu)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblcriticalRisk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,9 +187,9 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
         lblcriticalRisk.setOpaque(false);
         lblcriticalRisk.setBorder(null);
     }//GEN-LAST:event_btnclearFieldsActionPerformed
-    
-    private void btnclassifyRiksActionPerformed(java.awt.event.ActionEvent evt) {
-        double temp        = (Double) spnTemperature.getValue();
+
+    private void btnclassifyRiksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclassifyRiksActionPerformed
+    double temp        = (Double) spnTemperature.getValue();
     boolean respiratory = chkRespiratorydistress.isSelected();
     boolean feeding     = chkFeedingproblems.isSelected();
     boolean skin        = chkAbnormalskincolor.isSelected();
@@ -207,11 +209,12 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
     }
     lblcriticalRisk.setOpaque(true);
     lblcriticalRisk.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 10, 6, 10));
-    }
-    
-    private void btnbacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
-    }
+    }//GEN-LAST:event_btnclassifyRiksActionPerformed
+
+    private void btnbacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbacktoMenuActionPerformed
+    this.dispose();
+    }//GEN-LAST:event_btnbacktoMenuActionPerformed
+ 
     /**
      * @param args the command line arguments
      */
