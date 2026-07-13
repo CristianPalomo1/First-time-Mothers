@@ -1,0 +1,10 @@
+ec.edu.espe.mothersApp.model.IValidator
+ec.edu.espe.mothersApp.model.ISearchable
+ec.edu.espe.mothersApp.model.RespirationValidator
+ec.edu.espe.mothersApp.model.SkinColorValidator
+ec.edu.espe.mothersApp.model.FeedingValidator
+ec.edu.espe.mothersApp.model.IAppointment
+ec.edu.espe.mothersApp.model.IProfile
+ec.edu.espe.mothersApp.model.IRecordRepository
+ec.edu.espe.mothersApp.model.ActivityValidator
+ec.edu.espe.mothersApp.model.TemperatureValidator
