@@ -46,16 +46,17 @@ public class FrmMedicalRecord extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(218, 218, 246));
 
+        jLabel1.setFont(new java.awt.Font("Bodoni MT", 3, 24)); // NOI18N
         jLabel1.setText("CONSULTA MÉDICA DEL PACIENTE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(189, 189, 189)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +122,7 @@ public class FrmMedicalRecord extends javax.swing.JFrame {
         btnSave.setText("Guardar Historial Médico");
         btnSave.addActionListener(this::btnSaveActionPerformed);
 
-        btnBack.setText("Volver al Menú");
+        btnBack.setText("Regresar al Menú");
         btnBack.addActionListener(this::btnBackActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

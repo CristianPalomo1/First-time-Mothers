@@ -41,18 +41,18 @@ public class Perfil extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(245, 245, 250));
 
-        jLabel1.setText("User:");
+        jLabel1.setText("Usuario");
 
-        jLabel2.setText("Password:");
+        jLabel2.setText("Contraseña");
 
-        cbmAccept.setText("Accept");
+        cbmAccept.setText("Aceptar");
         cbmAccept.addActionListener(this::cbmAcceptActionPerformed);
 
-        cbmCreate.setText("Create");
+        cbmCreate.setText("Crear");
         cbmCreate.addActionListener(this::cbmCreateActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        jLabel3.setText("Login");
+        jLabel3.setText("Acceso");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,9 +131,20 @@ Perfil registro = new Perfil();
     }//GEN-LAST:event_cbmCreateActionPerformed
 
     private void cbmAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmAcceptActionPerformed
-MenuMothers menu = new MenuMothers();
-    menu.setVisible(true);
+String usuario = jTextField1.getText();
+    String contrasena = new String(jTextField2.getText()); 
+    if (usuario.equalsIgnoreCase("Error404") && contrasena.equals("123456789")) {
+        MenuMothers menu = new MenuMothers();
+        menu.setVisible(true);
         this.dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(
+            this, 
+            "Usuario o contraseña incorrectos", 
+            "Error de Acceso", 
+            javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
     }//GEN-LAST:event_cbmAcceptActionPerformed
 
     /**

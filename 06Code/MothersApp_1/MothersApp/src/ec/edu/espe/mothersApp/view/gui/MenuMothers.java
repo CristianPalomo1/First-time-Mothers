@@ -56,38 +56,38 @@ public class MenuMothers extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(243, 243, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
-        jLabel1.setText("Brave Motherhood");
+        jLabel1.setFont(new java.awt.Font("Bodoni MT", 3, 48)); // NOI18N
+        jLabel1.setText("Maternidad Valiente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(108, 108, 108)
                 .addComponent(jLabel1)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 255, 204));
 
         jMenu1.setBackground(new java.awt.Color(204, 255, 255));
-        jMenu1.setText("System");
+        jMenu1.setText("Sistema");
 
-        jMenu6.setText("Register");
+        jMenu6.setText("Registrar");
 
-        jMenuItem1.setText("Mother");
+        jMenuItem1.setText("Madre");
         jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
         jMenu6.add(jMenuItem1);
 
-        jMenuItem4.setText("Baby");
+        jMenuItem4.setText("Bebé");
         jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
         jMenu6.add(jMenuItem4);
 
@@ -98,11 +98,11 @@ public class MenuMothers extends javax.swing.JFrame {
         jMenu4.setBackground(new java.awt.Color(204, 255, 204));
         jMenu4.setText("Comunidad y Educación");
 
-        InteractiveChat.setText("Interactive Community Chat");
+        InteractiveChat.setText("Chat Interactivo");
         InteractiveChat.addActionListener(this::InteractiveChatActionPerformed);
         jMenu4.add(InteractiveChat);
 
-        jMenuItem12.setText("Educational Resource");
+        jMenuItem12.setText("Recurso Educativo");
         jMenuItem12.addActionListener(this::jMenuItem12ActionPerformed);
         jMenu4.add(jMenuItem12);
 
@@ -110,27 +110,27 @@ public class MenuMothers extends javax.swing.JFrame {
 
         jMenu5.setText("Diagnóstico y Alertas");
 
-        jMenuItem9.setText("Classify Health Risk Level");
+        jMenuItem9.setText("Clasificar el nivel de riesgo para la salud");
         jMenuItem9.addActionListener(this::jMenuItem9ActionPerformed);
         jMenu5.add(jMenuItem9);
 
         jMenuBar1.add(jMenu5);
 
-        jMenu2.setText("Medical Management");
+        jMenu2.setText("Gestión Médica");
 
-        jMenuItem5.setText("Calculate Gestation Week");
+        jMenuItem5.setText("Calcular la semana de gestación");
         jMenuItem5.addActionListener(this::jMenuItem5ActionPerformed);
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setText("Validate Pediatric Growth");
+        jMenuItem6.setText("Validar el crecimiento ");
         jMenuItem6.addActionListener(this::jMenuItem6ActionPerformed);
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setText("Manage Medical Appointment");
+        jMenuItem7.setText("Gestionar cita médica");
         jMenuItem7.addActionListener(this::jMenuItem7ActionPerformed);
         jMenu2.add(jMenuItem7);
 
-        MnuScheduleAppointment.setText("ScheduleAppointment");
+        MnuScheduleAppointment.setText("Programar cita");
         MnuScheduleAppointment.addActionListener(this::MnuScheduleAppointmentActionPerformed);
         jMenu2.add(MnuScheduleAppointment);
 
@@ -138,7 +138,7 @@ public class MenuMothers extends javax.swing.JFrame {
         MnuDoctor.addActionListener(this::MnuDoctorActionPerformed);
         jMenu2.add(MnuDoctor);
 
-        MnuMedicalRecord.setText("MedicalRecord");
+        MnuMedicalRecord.setText("Historial médico");
         MnuMedicalRecord.addActionListener(this::MnuMedicalRecordActionPerformed);
         jMenu2.add(MnuMedicalRecord);
 
@@ -163,47 +163,55 @@ public class MenuMothers extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 Mother motherWindow = new Mother();
 motherWindow.setVisible(true);
+this.dispose();
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
      Baby babyWindow = new Baby();
     babyWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
     EducationalResource eduWindow = new EducationalResource();
     eduWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
     ManagementWeekCalculator gestWindow = new ManagementWeekCalculator();
     gestWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         PediatricGrowthGUI growthWindow = new PediatricGrowthGUI();
     growthWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         MedicalAppointmentReminder apptWindow = new MedicalAppointmentReminder();
 apptWindow.setVisible(true);
+this.dispose();
 
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void InteractiveChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InteractiveChatActionPerformed
     InteractiveChatforMothers chatWindow = new InteractiveChatforMothers ();
     chatWindow.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_InteractiveChatActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         AlarmValidatorGUI riskWindow = new AlarmValidatorGUI(); 
     riskWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
@@ -211,18 +219,21 @@ apptWindow.setVisible(true);
         ScheduleAppointmentGUI appointmentWindow = new ScheduleAppointmentGUI();
         appointmentWindow.setVisible(true);
         appointmentWindow.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_MnuScheduleAppointmentActionPerformed
 
     private void MnuDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuDoctorActionPerformed
         FrmDoctor doctorWindow = new FrmDoctor();
         doctorWindow.setVisible(true);
         doctorWindow.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_MnuDoctorActionPerformed
 
     private void MnuMedicalRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuMedicalRecordActionPerformed
         FrmMedicalRecord recordWindow = new FrmMedicalRecord();
         recordWindow.setVisible(true);
         recordWindow.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_MnuMedicalRecordActionPerformed
 
     /**

@@ -59,24 +59,25 @@ public class Mother extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         jPanel2.setForeground(new java.awt.Color(204, 204, 255));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
 
         txtFirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 255)));
 
-        jLabel3.setText("LastName");
+        jLabel3.setText("Apellido");
 
         txtLastName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 204)));
 
-        jLabel4.setText("Id");
+        jLabel4.setText("Cédula/Pasaporte");
 
         txtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 153)));
         txtId.addActionListener(this::txtIdActionPerformed);
 
-        jLabel5.setText("WeightKg");
+        jLabel5.setText("Peso (kg)");
 
-        jLabel6.setText("Mother");
+        jLabel6.setFont(new java.awt.Font("Bodoni MT", 3, 36)); // NOI18N
+        jLabel6.setText("Madre");
 
-        jLabel7.setText("BirthDate");
+        jLabel7.setText("Fecha de nacimiento");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -89,9 +90,9 @@ public class Mother extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jLabel9.setText("Height");
+        jLabel9.setText("Altura");
 
-        btnSaveMother.setText("Save");
+        btnSaveMother.setText("Enviar");
         btnSaveMother.addActionListener(this::btnSaveMotherActionPerformed);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(100.0d, 100.0d, 2500.0d, 1.0d));
@@ -105,7 +106,7 @@ public class Mother extends javax.swing.JFrame {
 
         btmYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970" }));
 
-        jButton1.setText("Return to Menu");
+        jButton1.setText("Regresar al Menú");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -125,9 +126,9 @@ public class Mother extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                                    .addComponent(txtFirstName)
-                                    .addComponent(txtLastName)))
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                    .addComponent(txtLastName)
+                                    .addComponent(txtId)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -147,11 +148,11 @@ public class Mother extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btmYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(btnSaveMother)))
+                        .addComponent(btnSaveMother))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel6)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(

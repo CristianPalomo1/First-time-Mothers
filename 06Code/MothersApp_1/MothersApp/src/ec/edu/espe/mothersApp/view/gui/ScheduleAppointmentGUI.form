@@ -143,7 +143,7 @@
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Component id="lbldoctorRecommendation" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="113" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="129" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -153,18 +153,15 @@
         <Component class="javax.swing.JTextField" name="txtappointmentDate">
         </Component>
         <Component class="javax.swing.JLabel" name="lblappointmentDetails">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Appointment Details"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblappointmentDate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Appointment Date"/>
+            <Property name="text" type="java.lang.String" value="Detalles de la cita"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblReminder">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reminder"/>
+            <Property name="text" type="java.lang.String" value="Recordatorio"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -177,7 +174,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="lbldoctorRecommendation">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Doctor Recommendation"/>
+            <Property name="text" type="java.lang.String" value="Recomendaci&#xf3;n de la doctora"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -192,12 +189,15 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="MANAGE MEDICAL APPOINTMENT"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bodoni MT" size="24" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Gestionar cita m&#xe9;dica"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblappointmentScheduled">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" Appointment scheduled for 2024-07-15"/>
+        <Property name="text" type="java.lang.String" value="Cita programada para el 2024-07-15"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnsaveAppointment">
@@ -205,7 +205,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f8" green="e6" red="e6" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Save Appointment"/>
+        <Property name="text" type="java.lang.String" value="Guardar cita"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveAppointmentActionPerformed"/>
@@ -216,7 +216,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="e5" red="e5" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View Appointments"/>
+        <Property name="text" type="java.lang.String" value="Ver citas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnviewAppointmentsActionPerformed"/>
@@ -227,7 +227,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fc" green="e4" red="e4" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Save Medical History "/>
+        <Property name="text" type="java.lang.String" value="Guardar historial m&#xe9;dico"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
@@ -238,7 +238,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f9" green="e0" red="e0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear Fields"/>
+        <Property name="text" type="java.lang.String" value="Borrar campos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnclearFieldsActionPerformed"/>
@@ -249,7 +249,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f8" green="e3" red="e3" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Back to Menu"/>
+        <Property name="text" type="java.lang.String" value="Regresar al Men&#xfa;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbackMenuActionPerformed"/>

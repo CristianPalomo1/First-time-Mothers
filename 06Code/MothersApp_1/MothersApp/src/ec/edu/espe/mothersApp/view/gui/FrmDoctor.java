@@ -125,7 +125,7 @@ public class FrmDoctor extends javax.swing.JFrame {
         btnFollowUp.setText("Recomendar Seguimiento");
         btnFollowUp.addActionListener(this::btnFollowUpActionPerformed);
 
-        btnBack.setText("Volver al Menú");
+        btnBack.setText("Regresar al Menú");
         btnBack.addActionListener(this::btnBackActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

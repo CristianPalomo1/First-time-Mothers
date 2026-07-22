@@ -124,12 +124,13 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
         btnclearFields.addActionListener(this::btnclearFieldsActionPerformed);
 
         btnbacktoMenu.setBackground(new java.awt.Color(236, 236, 253));
-        btnbacktoMenu.setText("Volver al Menú");
+        btnbacktoMenu.setText("Regresar al Menú");
         btnbacktoMenu.addActionListener(this::btnbacktoMenuActionPerformed);
 
         lblcriticalRisk.setForeground(new java.awt.Color(255, 51, 51));
         lblcriticalRisk.setText("RIESGO CRÍTICO — Se requiere atención hospitalaria inmediata.");
 
+        jLabel1.setFont(new java.awt.Font("Bodoni MT", 3, 14)); // NOI18N
         jLabel1.setText("CLASIFICADOR DE RIESGO DE SALUD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +140,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnbacktoMenu, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnclearFields, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,7 +173,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
                         .addComponent(btnbacktoMenu)))
                 .addGap(18, 18, 18)
                 .addComponent(lblcriticalRisk)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

@@ -24,46 +24,41 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                      <Component id="lblVALIDATE" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jPanel3" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnvalidateGrowth" pref="124" max="32767" attributes="0"/>
-                                  <Component id="btnclearFields" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnbackMenu" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jPanel3" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnvalidateGrowth" max="32767" attributes="0"/>
+                          <Component id="btnclearFields" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnbackMenu" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblVALIDATE" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="lblVALIDATE" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="btnvalidateGrowth" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="btnclearFields" min="-2" max="-2" attributes="0"/>
@@ -81,7 +76,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -149,17 +144,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblbabyData">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Baby Data"/>
+            <Property name="text" type="java.lang.String" value="Datos del beb&#xe9;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblWeight">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Weight (g)"/>
+            <Property name="text" type="java.lang.String" value="Peso (g)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblHeight">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Height (cm)"/>
+            <Property name="text" type="java.lang.String" value="Altura (cm)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtWeight">
@@ -224,17 +219,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblmotherData">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mother Data"/>
+            <Property name="text" type="java.lang.String" value="Datos de la madre"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblWeightkg">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Weight (kg)"/>
+            <Property name="text" type="java.lang.String" value="Peso (Kg)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblHeight1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Height (cm)"/>
+            <Property name="text" type="java.lang.String" value="Altura (cm)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtWeightkg">
@@ -268,11 +263,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblNORMAL" max="32767" attributes="0"/>
                       <Component id="lblLOWRISK" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="lblResult" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="lblSEVERE" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblResult" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="lblSEVERE" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -297,7 +292,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblResult">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Result"/>
+            <Property name="text" type="java.lang.String" value="Resultado"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNORMAL">
@@ -305,7 +300,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f9" green="de" red="de" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" NORMAL &#x2014; Baby weight &#x2265; 2500g and height &#x2265; 45cm"/>
+            <Property name="text" type="java.lang.String" value="NORMAL &#x2014; Peso del beb&#xe9; &#x2265; 2500 g y talla &#x2265; 45 cm"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLOWRISK">
@@ -313,19 +308,22 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="e4" red="e4" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="LOW RISK &#x2014; Weight &#x2265; 1800g and height &#x2265; 35cm"/>
+            <Property name="text" type="java.lang.String" value="BAJO RIESGO &#x2014; Peso &#x2265; 1800 g y talla &#x2265; 35 cm"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSEVERE">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" SEVERE &#x2014; Below minimum thresholds"/>
+            <Property name="text" type="java.lang.String" value="GRAVE &#x2014; Por debajo de los umbrales m&#xed;nimos"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="lblVALIDATE">
       <Properties>
-        <Property name="text" type="java.lang.String" value="VALIDATE PEDIATRIC GROWTH"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bodoni MT" size="36" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Validar el crecimiento pedi&#xe1;trico"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnvalidateGrowth">
@@ -333,7 +331,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fc" green="e3" red="e3" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Validate Growth"/>
+        <Property name="text" type="java.lang.String" value="Validar el crecimiento"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvalidateGrowthActionPerformed"/>
@@ -344,7 +342,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fc" green="e3" red="e3" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear Fields"/>
+        <Property name="text" type="java.lang.String" value="Borrar campos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnclearFieldsActionPerformed"/>
@@ -355,7 +353,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f6" green="de" red="de" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Back to Menu"/>
+        <Property name="text" type="java.lang.String" value="Regresar al Men&#xfa;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbackMenuActionPerformed"/>

@@ -58,15 +58,13 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(226, 226, 242));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        lblappointmentDetails.setText("Appointment Details");
+        lblappointmentDate.setText("Detalles de la cita");
 
-        lblappointmentDate.setText("Appointment Date");
-
-        lblReminder.setText("Reminder");
+        lblReminder.setText("Recordatorio");
 
         jScrollPane1.setViewportView(txtreminder);
 
-        lbldoctorRecommendation.setText("Doctor Recommendation");
+        lbldoctorRecommendation.setText("Recomendación de la doctora");
 
         jScrollPane2.setViewportView(txtdoctorRecommendation);
 
@@ -109,32 +107,33 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(lbldoctorRecommendation)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jLabel1.setText("MANAGE MEDICAL APPOINTMENT");
+        jLabel1.setFont(new java.awt.Font("Bodoni MT", 3, 24)); // NOI18N
+        jLabel1.setText("Gestionar cita médica");
 
-        lblappointmentScheduled.setText(" Appointment scheduled for 2024-07-15");
+        lblappointmentScheduled.setText("Cita programada para el 2024-07-15");
 
         btnsaveAppointment.setBackground(new java.awt.Color(230, 230, 248));
-        btnsaveAppointment.setText("Save Appointment");
+        btnsaveAppointment.setText("Guardar cita");
         btnsaveAppointment.addActionListener(this::btnsaveAppointmentActionPerformed);
 
         btnviewAppointments.setBackground(new java.awt.Color(229, 229, 255));
-        btnviewAppointments.setText("View Appointments");
+        btnviewAppointments.setText("Ver citas");
         btnviewAppointments.addActionListener(this::btnviewAppointmentsActionPerformed);
 
         btnSave.setBackground(new java.awt.Color(228, 228, 252));
-        btnSave.setText("Save Medical History ");
+        btnSave.setText("Guardar historial médico");
         btnSave.addActionListener(this::btnSaveActionPerformed);
 
         btnclearFields.setBackground(new java.awt.Color(224, 224, 249));
-        btnclearFields.setText("Clear Fields");
+        btnclearFields.setText("Borrar campos");
         btnclearFields.addActionListener(this::btnclearFieldsActionPerformed);
 
         btnbackMenu.setBackground(new java.awt.Color(227, 227, 248));
-        btnbackMenu.setText("Back to Menu");
+        btnbackMenu.setText("Regresar al Menú");
         btnbackMenu.addActionListener(this::btnbackMenuActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
