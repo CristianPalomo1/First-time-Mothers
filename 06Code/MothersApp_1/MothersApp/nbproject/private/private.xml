@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/AlarmValidatorGUI.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/Baby.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/CreateProfile.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/EducationalResource.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/FrmDoctor.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/FrmMedicalRecord.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/InteractiveChatforMothers.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/ManagementWeekCalculator.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/MedicalAppointmentReminder.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/MenuMothers.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/Mother.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/PediatricGrowthGUI.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/Perfil.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/view/gui/ScheduleAppointmentGUI.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/controller/InteractiveChatController.java</file>
-            <file>file:/C:/Users/sbart/OneDrive/Desktop/OPP/First-time-Mothers/06Code/MothersApp_1/MothersApp/src/ec/edu/espe/mothersApp/model/InteractiveChat.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
