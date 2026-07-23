@@ -31,4 +31,11 @@ public class InteractiveChatController {
     public List<Document> viewMessages() {
         return collection.find().into(new ArrayList<>());
     }
+    public void clearChatHistory() {
+    try {
+        collection.deleteMany(new Document()); 
+    } catch (Exception e) {
+        System.out.println("Error al borrar historial: " + e.getMessage());
+    }
+    }
 }

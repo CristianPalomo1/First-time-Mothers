@@ -193,19 +193,18 @@ private final InteractiveChatController chatController;
     }//GEN-LAST:event_btnReturntoMenuActionPerformed
 
     private void btnLimpiarChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarChatActionPerformed
-    int opcion = javax.swing.JOptionPane.showConfirmDialog(
+        int opcion = javax.swing.JOptionPane.showConfirmDialog(
         this, 
-        "¿Deseas limpiar la pantalla del chat? (Solo se borrará para ti)", 
+        "¿Deseas limpiar la pantalla del chat?", 
         "Limpiar Chat", 
         javax.swing.JOptionPane.YES_NO_OPTION
-    );
+        );
 
-    if (opcion == javax.swing.JOptionPane.YES_OPTION) {
-        jTextPane1.setText(""); 
+        if (opcion == javax.swing.JOptionPane.YES_OPTION) {
+        chatController.clearChatHistory(); 
         
         jTextPane1.setContentType("text/html");
         jTextPane1.setText("<html><body></body></html>");
-        
         jTextPane1.revalidate();
         jTextPane1.repaint();
     }
