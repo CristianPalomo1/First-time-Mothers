@@ -47,6 +47,7 @@ private final InteractiveChatController chatController;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         btnReturntoMenu = new javax.swing.JButton();
+        btnLimpiarChat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,25 +92,31 @@ private final InteractiveChatController chatController;
         btnReturntoMenu.setText("Regresar al Menú");
         btnReturntoMenu.addActionListener(this::btnReturntoMenuActionPerformed);
 
+        btnLimpiarChat.setBackground(new java.awt.Color(255, 204, 255));
+        btnLimpiarChat.setText("Borrar");
+        btnLimpiarChat.addActionListener(this::btnLimpiarChatActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnReturntoMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(ButtonSend)
-                        .addGap(101, 101, 101)
-                        .addComponent(ButtonReply)
-                        .addGap(54, 54, 54))
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap()
+                        .addComponent(btnReturntoMenu)
+                        .addGap(29, 29, 29)
+                        .addComponent(ButtonSend)
+                        .addGap(27, 27, 27)
+                        .addComponent(ButtonReply)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiarChat)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,10 +130,11 @@ private final InteractiveChatController chatController;
                         .addContainerGap()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonReply)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReturntoMenu)
                     .addComponent(ButtonSend)
-                    .addComponent(btnReturntoMenu))
+                    .addComponent(ButtonReply)
+                    .addComponent(btnLimpiarChat))
                 .addGap(21, 21, 21))
         );
 
@@ -183,6 +191,26 @@ private final InteractiveChatController chatController;
     menu.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnReturntoMenuActionPerformed
+
+    private void btnLimpiarChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarChatActionPerformed
+    int opcion = javax.swing.JOptionPane.showConfirmDialog(
+        this, 
+        "¿Deseas limpiar la pantalla del chat? (Solo se borrará para ti)", 
+        "Limpiar Chat", 
+        javax.swing.JOptionPane.YES_NO_OPTION
+    );
+
+    if (opcion == javax.swing.JOptionPane.YES_OPTION) {
+        jTextPane1.setText(""); 
+        
+        jTextPane1.setContentType("text/html");
+        jTextPane1.setText("<html><body></body></html>");
+        
+        jTextPane1.revalidate();
+        jTextPane1.repaint();
+    }
+
+    }//GEN-LAST:event_btnLimpiarChatActionPerformed
     private void cargarHistorialDesdeNube() {
         try {
             List<Document> mensajesGuardados = chatController.viewMessages();
@@ -226,6 +254,7 @@ private final InteractiveChatController chatController;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonReply;
     private javax.swing.JButton ButtonSend;
+    private javax.swing.JButton btnLimpiarChat;
     private javax.swing.JButton btnReturntoMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
