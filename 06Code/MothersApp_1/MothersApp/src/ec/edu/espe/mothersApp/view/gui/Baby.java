@@ -27,6 +27,7 @@ public class Baby extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 private void initComponentsCustom() {
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -363,6 +364,8 @@ private void initComponentsCustom() {
     }//GEN-LAST:event_txtBabyLastNameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

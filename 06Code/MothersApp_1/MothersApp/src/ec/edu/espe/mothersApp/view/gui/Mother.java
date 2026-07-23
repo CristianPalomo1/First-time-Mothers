@@ -19,6 +19,7 @@ public class Mother extends javax.swing.JFrame {
     private final MotherController controller;
     public Mother() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.controller = new MotherController();
     }
 
@@ -292,8 +293,9 @@ public class Mother extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveMotherActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();    }//GEN-LAST:event_jButton1ActionPerformed
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {
 
     }

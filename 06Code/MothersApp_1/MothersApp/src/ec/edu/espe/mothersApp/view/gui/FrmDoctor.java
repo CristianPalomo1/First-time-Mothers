@@ -15,6 +15,7 @@ public class FrmDoctor extends javax.swing.JFrame {
 
    public FrmDoctor() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.controller = new ec.edu.espe.mothersApp.controller.DoctorController();
     }
     /**
@@ -189,7 +190,9 @@ public class FrmDoctor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.dispose();
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

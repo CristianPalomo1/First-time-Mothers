@@ -164,7 +164,6 @@ public class MenuMothers extends javax.swing.JFrame {
 Mother motherWindow = new Mother();
 motherWindow.setVisible(true);
 this.dispose();
-
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -197,8 +196,8 @@ this.dispose();
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         MedicalAppointmentReminder apptWindow = new MedicalAppointmentReminder();
-apptWindow.setVisible(true);
-this.dispose();
+    apptWindow.setVisible(true);
+    this.dispose();
 
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -206,6 +205,7 @@ this.dispose();
     InteractiveChatforMothers chatWindow = new InteractiveChatforMothers ();
     chatWindow.setVisible(true);
     this.dispose();
+
     }//GEN-LAST:event_InteractiveChatActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
@@ -220,6 +220,7 @@ this.dispose();
         appointmentWindow.setVisible(true);
         appointmentWindow.setLocationRelativeTo(null);
         this.dispose();
+
     }//GEN-LAST:event_MnuScheduleAppointmentActionPerformed
 
     private void MnuDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuDoctorActionPerformed
@@ -227,6 +228,7 @@ this.dispose();
         doctorWindow.setVisible(true);
         doctorWindow.setLocationRelativeTo(null);
         this.dispose();
+
     }//GEN-LAST:event_MnuDoctorActionPerformed
 
     private void MnuMedicalRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuMedicalRecordActionPerformed
@@ -234,6 +236,7 @@ this.dispose();
         recordWindow.setVisible(true);
         recordWindow.setLocationRelativeTo(null);
         this.dispose();
+
     }//GEN-LAST:event_MnuMedicalRecordActionPerformed
 
     /**

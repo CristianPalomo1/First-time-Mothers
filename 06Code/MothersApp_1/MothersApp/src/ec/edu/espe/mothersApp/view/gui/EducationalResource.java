@@ -33,6 +33,7 @@ public class EducationalResource extends javax.swing.JFrame {
     
     public EducationalResource() {
         initComponents();
+        
         this.controller = new ec.edu.espe.mothersApp.controller.EducationalResourceController();
         updateTipCard();
     }

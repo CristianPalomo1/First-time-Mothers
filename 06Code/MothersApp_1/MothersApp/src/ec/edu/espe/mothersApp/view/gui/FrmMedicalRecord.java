@@ -16,6 +16,7 @@ public class FrmMedicalRecord extends javax.swing.JFrame {
     
     public FrmMedicalRecord() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.controller = new ec.edu.espe.mothersApp.controller.MedicalRecordController();
     }
 
@@ -176,7 +177,9 @@ public class FrmMedicalRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBabyIdActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.dispose();
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

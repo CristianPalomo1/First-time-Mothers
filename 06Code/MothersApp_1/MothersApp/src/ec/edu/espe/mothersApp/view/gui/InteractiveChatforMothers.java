@@ -19,6 +19,7 @@ private final InteractiveChatController chatController;
     
     public InteractiveChatforMothers() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         
         jTextPane1.setContentType("text/html");
     jTextPane1.setEditable(false);
@@ -178,7 +179,9 @@ private final InteractiveChatController chatController;
     }//GEN-LAST:event_ButtonSendActionPerformed
 
     private void btnReturntoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturntoMenuActionPerformed
-            this.dispose();
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnReturntoMenuActionPerformed
     private void cargarHistorialDesdeNube() {
         try {

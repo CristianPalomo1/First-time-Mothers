@@ -16,6 +16,7 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
     
     public PediatricGrowthGUI() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.controller = new PediatricGrowthController();
         resetResultLabels();
     }
@@ -346,7 +347,9 @@ public class PediatricGrowthGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWeightkgAncestorAdded
 
     private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackMenuActionPerformed
-        this.dispose();
+        MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnbackMenuActionPerformed
 
     private void btnclearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearFieldsActionPerformed

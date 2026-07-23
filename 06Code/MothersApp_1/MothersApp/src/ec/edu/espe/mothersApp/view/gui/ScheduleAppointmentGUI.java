@@ -17,6 +17,7 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
     
     public ScheduleAppointmentGUI() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.controller = new ScheduleAppointmentController();
         btnsaveAppointment.addActionListener(this::btnsaveAppointmentActionPerformed);
         btnviewAppointments.addActionListener(this::btnviewAppointmentsActionPerformed);
@@ -190,7 +191,9 @@ public class ScheduleAppointmentGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackMenuActionPerformed
-        this.dispose();
+    MenuMothers menu = new MenuMothers();
+    menu.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnbackMenuActionPerformed
 
     private void btnsaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveAppointmentActionPerformed

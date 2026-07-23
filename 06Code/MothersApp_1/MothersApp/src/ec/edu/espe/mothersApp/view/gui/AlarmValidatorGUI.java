@@ -15,6 +15,7 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
     
     public AlarmValidatorGUI() {
         initComponents(); 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         javax.swing.SpinnerNumberModel modeloTemp = new javax.swing.SpinnerNumberModel(
             36.8, 30.0, 42.0, 0.1
         );
@@ -214,7 +215,9 @@ public class AlarmValidatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclassifyRiksActionPerformed
 
     private void btnbacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbacktoMenuActionPerformed
-    this.dispose();
+        MenuMothers menu = new MenuMothers();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnbacktoMenuActionPerformed
 
     private void chkRespiratorydistressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRespiratorydistressActionPerformed

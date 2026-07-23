@@ -9,14 +9,14 @@ package ec.edu.espe.mothersApp.view.gui;
  * @author Jennyfer Nase, Error 404, @ESPE
  */
 public class Perfil extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Perfil.class.getName());
-
-    /**
-     * Creates new form Perfil
-     */
+    public static final java.util.Map<String, String> usuarios = new java.util.HashMap<>();
+    static {
+        usuarios.put("Error404", "123456789");
+    }
     public Perfil() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -124,27 +124,46 @@ public class Perfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbmCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCreateActionPerformed
-Perfil registro = new Perfil();
-    registro.setVisible(true);
-    this.dispose();
+    CreateProfile ventanaRegistro = new CreateProfile(); // o Registro()
+        ventanaRegistro.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_cbmCreateActionPerformed
 
     private void cbmAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmAcceptActionPerformed
-String usuario = jTextField1.getText();
-    String contrasena = new String(jTextField2.getText()); 
-    if (usuario.equalsIgnoreCase("Error404") && contrasena.equals("123456789")) {
-        MenuMothers menu = new MenuMothers();
-        menu.setVisible(true);
-        this.dispose();
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(
-            this, 
-            "Usuario o contraseña incorrectos", 
-            "Error de Acceso", 
-            javax.swing.JOptionPane.ERROR_MESSAGE
-        );
-    }
+    String usuario = jTextField1.getText().trim();
+        String contrasena = jTextField2.getText().trim(); 
+
+        if (usuario.isEmpty() || contrasena.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(
+                this, 
+                "Por favor, llena todos los campos.", 
+                "Campos Incompletos", 
+                javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+        if (usuarios.containsKey(usuario) && usuarios.get(usuario).equals(contrasena)) {
+            
+            javax.swing.JOptionPane.showMessageDialog(
+                this, 
+                "📩 Notificación de seguridad enviada a " + usuario + ":\n" +
+                "\"Se ha iniciado sesión correctamente en tu cuenta de MothersApp.\"", 
+                "Inicio de Sesión Exitoso", 
+                javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+            MenuMothers menu = new MenuMothers();
+            menu.setVisible(true);
+            this.dispose();
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                this, 
+                "Usuario o contraseña incorrectos", 
+                "Error de Acceso", 
+                javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+        }
     }//GEN-LAST:event_cbmAcceptActionPerformed
 
     /**
