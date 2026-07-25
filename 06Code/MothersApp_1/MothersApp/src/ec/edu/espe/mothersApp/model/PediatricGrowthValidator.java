@@ -13,11 +13,11 @@ import java.util.Scanner;
 
 public class PediatricGrowthValidator {
 
-    public static double motherWeight;
-    public static double motherHeight;
+    public static double motherWeight = 0.0;
+    public static double motherHeight = 0.0;
 
-    public static double babyWeight;
-    public static double babyHeight;
+    public static double babyWeight = 0.0;
+    public static double babyHeight = 0.0;
 
     public static void validateGrowth() {
 

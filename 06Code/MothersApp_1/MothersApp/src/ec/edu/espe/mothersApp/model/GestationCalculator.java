@@ -69,11 +69,15 @@ public class GestationCalculator {
         }
     }
 
-    private static String getTrimester(int week) {
-        if (week <= 12)      return "1st Trimester";
-        else if (week <= 27) return "2nd Trimester";
-        else                 return "3rd Trimester";
+   public static String getTrimester(int week) {
+    if (week <= 12) {
+        return "1st Trimester";
+    } else if (week <= 27) {
+        return "2nd Trimester";
+    } else {
+        return "3rd Trimester";
     }
+}
 
     public static class GestationResult {
         public int    currentWeek;
