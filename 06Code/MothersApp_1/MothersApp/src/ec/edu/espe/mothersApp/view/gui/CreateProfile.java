@@ -41,7 +41,7 @@ public class CreateProfile extends javax.swing.JFrame {
         TexApellido = new javax.swing.JTextField();
         TexCorreo = new javax.swing.JTextField();
         TexCorreoConfir = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        ButtonGuardar = new javax.swing.JButton();
         TexContrasena = new javax.swing.JPasswordField();
         TexContrasenaConfir = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
@@ -68,8 +68,8 @@ public class CreateProfile extends javax.swing.JFrame {
 
         TexNombre.addActionListener(this::TexNombreActionPerformed);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        ButtonGuardar.setText("Guardar");
+        ButtonGuardar.addActionListener(this::ButtonGuardarActionPerformed);
 
         jLabel8.setText("Nombre de usuario");
 
@@ -116,7 +116,7 @@ public class CreateProfile extends javax.swing.JFrame {
                                     .addComponent(TexNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(jButton1))
+                        .addComponent(ButtonGuardar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8)))
@@ -156,7 +156,7 @@ public class CreateProfile extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(TexNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(ButtonGuardar)
                 .addGap(28, 28, 28))
         );
 
@@ -184,7 +184,7 @@ public class CreateProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TexNombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGuardarActionPerformed
     String nombre = TexNombre.getText().trim();
     String apellido = TexApellido.getText().trim();
     String correo = TexCorreo.getText().trim();
@@ -219,15 +219,9 @@ public class CreateProfile extends javax.swing.JFrame {
         return;
     }
 
-    if (Perfil.usuarios.containsKey(username)) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "El nombre de usuario '" + username + "' ya está registrado. Elige otro.",
-            "Usuario Ya Existente",
-            javax.swing.JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-
     Perfil.usuarios.put(username, contrasena);
+
+    ec.edu.espe.mothersApp.controller.EmailService.enviarNotificacionRegistro(correo, nombre + " " + apellido);
 
     javax.swing.JOptionPane.showMessageDialog(this,
         "¡Registro completado con éxito!\n\n" +
@@ -239,7 +233,7 @@ public class CreateProfile extends javax.swing.JFrame {
     Perfil login = new Perfil();
     login.setVisible(true);
     this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonGuardarActionPerformed
 
     private void TexNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TexNombreUsuarioActionPerformed
         // TODO add your handling code here:
@@ -271,6 +265,7 @@ public class CreateProfile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonGuardar;
     private javax.swing.JTextField TexApellido;
     private javax.swing.JPasswordField TexContrasena;
     private javax.swing.JPasswordField TexContrasenaConfir;
@@ -278,7 +273,6 @@ public class CreateProfile extends javax.swing.JFrame {
     private javax.swing.JTextField TexCorreoConfir;
     private javax.swing.JTextField TexNombre;
     private javax.swing.JTextField TexNombreUsuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

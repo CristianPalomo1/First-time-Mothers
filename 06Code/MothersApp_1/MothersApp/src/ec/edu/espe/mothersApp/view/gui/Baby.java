@@ -279,7 +279,7 @@ private void initComponentsCustom() {
                     .addComponent(jLabel15)
                     .addGap(18, 18, 18)
                     .addComponent(jLabel16)
-                    .addContainerGap(307, Short.MAX_VALUE)))
+                    .addContainerGap(321, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,8 +299,8 @@ private void initComponentsCustom() {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(31, Short.MAX_VALUE)))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 426, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
